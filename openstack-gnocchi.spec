@@ -1,9 +1,11 @@
 %global pypi_name gnocchi
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 Name:           openstack-gnocchi
-Version:	1.0.0
-Release:	1%{?dist}
+Version:	xxx
+Release:	xxx
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:	APL 2.0
@@ -168,7 +170,7 @@ This package contains documentation files for gnocchi.
 
 
 %prep
-%setup -q -n gnocchi-%{version}
+%setup -q -n gnocchi-%{upstream_version}
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -238,7 +240,5 @@ cp -R etc/ceilometer/gnocchi_archive_policy_map.yaml %{buildroot}/%{_sysconfdir}
 
 
 %changelog
-* Mon Apr 27 2015 Pradeep Kilambi <pkilambi@redhat.com> 1.0.0-1
-- initial package release
 
 
