@@ -3,7 +3,7 @@
 
 Name:           openstack-gnocchi
 Version:	1.0.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:	APL 2.0
@@ -238,6 +238,9 @@ cp -R etc/ceilometer/gnocchi_archive_policy_map.yaml %{buildroot}/%{_sysconfdir}
 
 
 %changelog
+* Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Mon Apr 27 2015 Pradeep Kilambi <pkilambi@redhat.com> 1.0.0-1
 - initial package release
 
