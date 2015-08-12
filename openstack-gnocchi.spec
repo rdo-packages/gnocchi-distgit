@@ -127,7 +127,6 @@ Summary:        Components common to all OpenStackk gnocchi services
 
 Requires:       python-gnocchi = %{version}-%{release}
 
-Requires:       openstack-ceilometer-common
 Requires:       python-oslo-log
 Requires:       python-oslo-utils
 Requires:       python-trollius
@@ -221,7 +220,6 @@ install -p -D -m 640 %{SOURCE1} etc/gnocchi/gnocchi.conf.sample
 
 mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig/
 mkdir -p %{buildroot}/%{_sysconfdir}/gnocchi/
-mkdir -p %{buildroot}/%{_sysconfdir}/ceilometer/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
 
 install -p -D -m 640 etc/gnocchi/gnocchi.conf.sample %{buildroot}%{_sysconfdir}/gnocchi/gnocchi.conf
@@ -230,7 +228,6 @@ install -p -D -m 640 etc/gnocchi/gnocchi.conf.sample %{buildroot}%{_sysconfdir}/
 
 # Configuration
 cp -R etc/gnocchi/policy.json %{buildroot}/%{_sysconfdir}/gnocchi
-cp -R etc/ceilometer/gnocchi_archive_policy_map.yaml %{buildroot}/%{_sysconfdir}/ceilometer
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/gnocchi
@@ -290,7 +287,6 @@ exit 0
 %dir %{_sysconfdir}/gnocchi
 %config(noreplace) %{_sysconfdir}/gnocchi/policy.json
 %config(noreplace) %{_sysconfdir}/gnocchi/gnocchi.conf
-%config(noreplace) %{_sysconfdir}/ceilometer/gnocchi_archive_policy_map.yaml
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %{_localstatedir}/log/gnocchi
 %dir %{_sharedstatedir}/gnocchi
