@@ -34,18 +34,18 @@ Requires:       numpy
 Requires:       python-flask
 Requires:       python-futures
 Requires:	python-jinja2
-Requires:       python-keystonemiddleware
+Requires:       python-keystonemiddleware >= 2.3.0
 Requires:	python-msgpack
-Requires:       python-oslo-config
-Requires:       python-oslo-db
-Requires:       python-oslo-log
-Requires:       python-oslo-policy
-Requires:       python-oslo-sphinx
-Requires:       python-oslo-serialization
-Requires:       python-oslo-utils
-Requires:       python-pandas
-Requires:       python-pecan
-Requires:       python-pytimeparse
+Requires:       python-oslo-config >= 1.15.0
+Requires:       python-oslo-db >= 1.8.0
+Requires:       python-oslo-log >= 1.0.0
+Requires:       python-oslo-policy >= 0.3.0
+Requires:       python-oslo-sphinx >= 2.2.0
+Requires:       python-oslo-serialization >= 1.4.0
+Requires:       python-oslo-utils >= 1.6.0
+Requires:       python-pandas >= 0.17.0
+Requires:       python-pecan >= 0.9
+Requires:       python-pytimeparse >= 1.1.5
 Requires:       python-retrying
 Requires:       python-requests
 Requires:       python-swiftclient
@@ -54,13 +54,15 @@ Requires:	python-sqlalchemy
 Requires:       python-sqlalchemy-utils
 Requires:	python-stevedore
 Requires:	python-sysv_ipc
-Requires:       python-tooz
+Requires:       python-tooz >= 0.11
 Requires:	python-trollius
 Requires:	python-voluptuous
 Requires:	python-werkzeug
 Requires:       pytz
 Requires:	PyYAML
-
+Requires:       python-webob >= 1.2.3
+Requires:       python-alembic
+Requires:       python-psycopg2
 
 %description -n   python-gnocchi
 OpenStack gnocchi provides API to store metrics from OpenStack components
@@ -73,26 +75,10 @@ This package contains the gnocchi python library.
 
 Summary:        OpenStack gnocchi api
 
-Requires:       python-gnocchi = %{version}-%{release}
+Requires:       %{name}-common = %{version}-%{release}
+Requires:       %{name}-indexer-sqlalchemy = %{version}-%{release}
+Requires:       %{name}-carbonara =  %{version}-%{release}
 
-Requires:       python-flask
-Requires:       python-jinja2
-Requires:       python-keystonemiddleware
-Requires:       python-oslo-db
-Requires:       python-oslo-policy
-Requires:       python-oslo-utils
-Requires:       python-oslo-serialization
-Requires:       python-pecan
-Requires:       python-pytimeparse
-Requires:       python-requests
-Requires:       python-six
-Requires:	python-sqlalchemy
-Requires:       python-sqlalchemy-utils
-Requires:       python-stevedore
-Requires:       python-tooz
-Requires:       python-voluptuous
-Requires:       python-werkzeug
-Requires:       PyYAML
 
 %description api
 OpenStack gnocchi provides API to store metrics from OpenStack components
@@ -104,7 +90,7 @@ This package contains the gnocchi API service.
 
 Summary:        OpenStack gnocchi carbonara
 
-Requires:       python-gnocchi = %{version}-%{release}
+Requires:       %{name}-common = %{version}-%{release}
 
 Requires:       python-futures
 Requires:       python-msgpack
@@ -141,7 +127,7 @@ collect metrics from OpenStack components.
 
 Summary:        OpenStack gnocchi indexer sqlalchemy driver
 
-Requires:       python-gnocchi = %{version}-%{release}
+Requires:       %{name}-common = %{version}-%{release}
 
 Requires:       python-oslo-db
 Requires:       python-oslo-utils
