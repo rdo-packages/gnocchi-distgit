@@ -285,10 +285,12 @@ exit 0
 
 %files common
 %dir %{_sysconfdir}/gnocchi
-%config(noreplace) %{_sysconfdir}/gnocchi/policy.json
-%config(noreplace) %{_sysconfdir}/gnocchi/gnocchi.conf
-%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%dir %{_localstatedir}/log/gnocchi
+%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
+%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/gnocchi.conf
+%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/logrotate.d/%{name}
+%dir %attr(0755, gnocchi, root)  %{_localstatedir}/log/gnocchi
+
+%defattr(-, gnocchi, gnocchi, -)
 %dir %{_sharedstatedir}/gnocchi
 %dir %{_sharedstatedir}/gnocchi/tmp
 
