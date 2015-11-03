@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenStack gnocchi statsd service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=gnocchi
+ExecStart=/usr/bin/gnocchi-api --logfile /var/log/gnocchi/statsd.log
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenStack ceilometer API service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=gnocchi
+ExecStart=/usr/bin/gnocchi-api --logfile /var/log/gnocchi/api.log
+
+[Install]
+WantedBy=multi-user.target
+
