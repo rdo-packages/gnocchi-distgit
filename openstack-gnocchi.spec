@@ -5,7 +5,7 @@
 
 Name:           openstack-gnocchi
 Version:        1.3.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:	APL 2.0
@@ -44,6 +44,7 @@ Requires:       python-oslo-sphinx >= 2.2.0
 Requires:       python-oslo-serialization >= 1.4.0
 Requires:       python-oslo-utils >= 1.6.0
 Requires:       python-pandas >= 0.17.0
+Requires:       python-paste-deploy
 Requires:       python-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
 Requires:       python-retrying
@@ -299,7 +300,7 @@ exit 0
 
 
 %changelog
-* Wed Nov 04 2015 Alan Pevec <apevec@redhat.com> - 1.3.0-2
+* Wed Nov 04 2015 Alan Pevec <apevec@redhat.com> - 1.3.0-3
 - Update to 1.3.0
 
 * Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.0-2
