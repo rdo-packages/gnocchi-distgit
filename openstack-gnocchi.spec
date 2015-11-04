@@ -44,6 +44,7 @@ Requires:       python-oslo-sphinx >= 2.2.0
 Requires:       python-oslo-serialization >= 1.4.0
 Requires:       python-oslo-utils >= 1.6.0
 Requires:       python-pandas >= 0.17.0
+Requires:       python-paste-deploy
 Requires:       python-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
 Requires:       python-retrying
