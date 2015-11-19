@@ -231,10 +231,9 @@ install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-statsd.service
 
 
 %pre common
-getent group gnocchi >/dev/null || groupadd -r gnocchi --gid 166
+getent group gnocchi >/dev/null || groupadd -r gnocchi
 if ! getent passwd gnocchi >/dev/null; then
-  # Id reservation request: https://bugzilla.redhat.com/923891
-  useradd -u 166 -r -g gnocchi -G gnocchi,nobody -d %{_sharedstatedir}/gnocchi -s /sbin/nologin -c "OpenStack gnocchi Daemons" gnocchi
+  useradd -r -g gnocchi -G gnocchi,nobody -d %{_sharedstatedir}/gnocchi -s /sbin/nologin -c "OpenStack gnocchi Daemons" gnocchi
 fi
 exit 0
 
