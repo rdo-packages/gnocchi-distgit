@@ -210,6 +210,7 @@ mkdir -p %{buildroot}/%{_sysconfdir}/gnocchi/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
 
 install -p -D -m 640 etc/gnocchi/gnocchi.conf.sample %{buildroot}%{_sysconfdir}/gnocchi/gnocchi.conf
+install -p -D -m 640 etc/gnocchi/api-paste.ini %{buildroot}%{_sysconfdir}/gnocchi/api-paste.ini
 
 #TODO(prad): build the docs at run time, once the we get rid of postgres setup dependency
 
@@ -273,6 +274,7 @@ exit 0
 %dir %{_sysconfdir}/gnocchi
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/gnocchi.conf
+%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/api-paste.ini
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, gnocchi, root)  %{_localstatedir}/log/gnocchi
 
