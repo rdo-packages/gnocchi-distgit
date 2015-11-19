@@ -5,7 +5,7 @@
 
 Name:           openstack-gnocchi
 Version:        1.3.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:	APL 2.0
@@ -210,6 +210,7 @@ mkdir -p %{buildroot}/%{_sysconfdir}/gnocchi/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
 
 install -p -D -m 640 etc/gnocchi/gnocchi.conf.sample %{buildroot}%{_sysconfdir}/gnocchi/gnocchi.conf
+install -p -D -m 640 etc/gnocchi/api-paste.ini %{buildroot}%{_sysconfdir}/gnocchi/api-paste.ini
 
 #TODO(prad): build the docs at run time, once the we get rid of postgres setup dependency
 
@@ -273,6 +274,7 @@ exit 0
 %dir %{_sysconfdir}/gnocchi
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/gnocchi.conf
+%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/api-paste.ini
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, gnocchi, root)  %{_localstatedir}/log/gnocchi
 
@@ -299,6 +301,9 @@ exit 0
 
 
 %changelog
+* Thu Nov 19 2015 Alan Pevec <apevec@redhat.com> - 1.3.0-5
+- Include api-paste.ini rhbz#1283755
+
 * Thu Nov 05 2015 Alan Pevec <apevec@redhat.com> - 1.3.0-4
 - Update to 1.3.0
 
