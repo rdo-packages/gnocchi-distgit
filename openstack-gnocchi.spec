@@ -284,7 +284,7 @@ exit 0
 
 
 %files indexer-sqlalchemy
-%{_bindir}/gnocchi-dbsync
+%{_bindir}/gnocchi-upgrade
 
 %files metricd
 %{_bindir}/gnocchi-metricd
