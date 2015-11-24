@@ -6,6 +6,7 @@ After=syslog.target network.target
 Type=simple
 User=gnocchi
 ExecStart=/usr/bin/gnocchi-api --logfile /var/log/gnocchi/api.log
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
