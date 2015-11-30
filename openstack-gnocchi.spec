@@ -5,12 +5,12 @@
 
 Name:           openstack-gnocchi
 Version:        xxx
-Release:	xxx
+Release:        xxx
 Summary:        Gnocchi is a API to store metrics and index resources
 
-License:	APL 2.0
-URL:		http://github.com/openstack/gnocchi
-Source0:	https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+License:        APL 2.0
+URL:            http://github.com/openstack/gnocchi
+Source0:        https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 Source1:        %{pypi_name}.conf.sample
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
@@ -18,7 +18,7 @@ Source11:       %{name}-metricd.service
 Source12:       %{name}-statsd.service
 BuildArch:      noarch
 
-BuildRequires:	python-setuptools
+BuildRequires:  python-setuptools
 BuildRequires:  python-sphinx
 BuildRequires:  python-pbr
 BuildRequires:  python2-devel
@@ -33,12 +33,13 @@ Summary:        OpenStack gnocchi python libraries
 Requires:       numpy
 Requires:       python-flask
 Requires:       python-futures
-Requires:	python-jinja2
+Requires:       python-jinja2
 Requires:       python-keystonemiddleware >= 2.3.0
-Requires:	python-msgpack
+Requires:       python-msgpack
 Requires:       python-oslo-config >= 1.15.0
 Requires:       python-oslo-db >= 1.8.0
 Requires:       python-oslo-log >= 1.0.0
+Requires:       python-oslo-middleware
 Requires:       python-oslo-policy >= 0.3.0
 Requires:       python-oslo-sphinx >= 2.2.0
 Requires:       python-oslo-serialization >= 1.4.0
@@ -49,21 +50,22 @@ Requires:       python-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
 Requires:       python-retrying
 Requires:       python-requests
-Requires:       python-swiftclient
-Requires:	python-six
-Requires:	python-sqlalchemy
+Requires:       python-swiftclient >= 2.5.0
+Requires:       python-six
+Requires:       python-sqlalchemy
 Requires:       python-sqlalchemy-utils
-Requires:	python-stevedore
-Requires:	python-sysv_ipc
+Requires:       python-stevedore
+Requires:       python-sysv_ipc
 Requires:       python-tooz >= 0.11
-Requires:	python-trollius
-Requires:	python-voluptuous
-Requires:	python-werkzeug
+Requires:       python-trollius
+Requires:       python-voluptuous
+Requires:       python-werkzeug
 Requires:       pytz
-Requires:	PyYAML
+Requires:       PyYAML
 Requires:       python-webob >= 1.2.3
 Requires:       python-alembic
 Requires:       python-psycopg2
+Requires:       python-prettytable
 
 %description -n   python-gnocchi
 OpenStack gnocchi provides API to store metrics from OpenStack components
@@ -93,14 +95,6 @@ Summary:        OpenStack gnocchi carbonara
 
 Requires:       %{name}-common = %{version}-%{release}
 
-Requires:       python-futures
-Requires:       python-msgpack
-Requires:       python-oslo-utils
-Requires:       python-pandas
-Requires:       python-retrying
-Requires:       python-swiftclient
-Requires:       python-tooz
-
 %description carbonara
 OpenStack gnocchi provides API to store metrics from OpenStack
 components and index resources.
@@ -114,10 +108,6 @@ Summary:        Components common to all OpenStackk gnocchi services
 
 Requires:       python-gnocchi = %{version}-%{release}
 
-Requires:       python-oslo-log
-Requires:       python-oslo-utils
-Requires:       python-trollius
-Requires:       python-six
 
 %description    common
 OpenStack gnocchi provides services to measure and
@@ -130,12 +120,6 @@ Summary:        OpenStack gnocchi indexer sqlalchemy driver
 
 Requires:       %{name}-common = %{version}-%{release}
 
-Requires:       python-oslo-db
-Requires:       python-oslo-utils
-Requires:       python-sqlalchemy
-Requires:       python-swiftclient
-Requires:       python-stevedore
-Requires:       pytz
 
 %description indexer-sqlalchemy
 OpenStack gnocchi provides API to store metrics from OpenStack
