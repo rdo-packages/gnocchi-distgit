@@ -250,9 +250,7 @@ exit 0
 %{_unitdir}/%{name}-api.service
 
 %files carbonara
-%{_bindir}/carbonara-create
 %{_bindir}/carbonara-dump
-%{_bindir}/carbonara-update
 
 %files common
 %dir %{_sysconfdir}/gnocchi
