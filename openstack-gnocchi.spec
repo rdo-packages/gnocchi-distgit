@@ -36,7 +36,7 @@ Requires:       python-futures
 Requires:       python-jinja2
 Requires:       python-keystonemiddleware >= 2.3.0
 Requires:       python-msgpack
-Requires:       python-oslo-config >= 1.15.0
+Requires:       python-oslo-config >= 2.6.0
 Requires:       python-oslo-db >= 1.8.0
 Requires:       python-oslo-log >= 1.0.0
 Requires:       python-oslo-middleware
@@ -62,7 +62,7 @@ Requires:       python-voluptuous
 Requires:       python-werkzeug
 Requires:       pytz
 Requires:       PyYAML
-Requires:       python-webob >= 1.2.3
+Requires:       python-webob >= 1.4.1
 Requires:       python-alembic
 Requires:       python-psycopg2
 Requires:       python-prettytable
