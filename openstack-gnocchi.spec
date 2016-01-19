@@ -4,13 +4,13 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-gnocchi
-Version:        1.3.0
-Release:        5%{?dist}
+Version:        1.3.3
+Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
-License:	APL 2.0
-URL:		http://github.com/openstack/gnocchi
-Source0:	https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+License:        APL 2.0
+URL:            http://github.com/openstack/gnocchi
+Source0:        https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 Source1:        %{pypi_name}.conf.sample
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
@@ -18,7 +18,7 @@ Source11:       %{name}-metricd.service
 Source12:       %{name}-statsd.service
 BuildArch:      noarch
 
-BuildRequires:	python-setuptools
+BuildRequires:  python-setuptools
 BuildRequires:  python-sphinx
 BuildRequires:  python-pbr
 BuildRequires:  python2-devel
@@ -33,12 +33,13 @@ Summary:        OpenStack gnocchi python libraries
 Requires:       numpy
 Requires:       python-flask
 Requires:       python-futures
-Requires:	python-jinja2
+Requires:       python-jinja2
 Requires:       python-keystonemiddleware >= 2.3.0
-Requires:	python-msgpack
+Requires:       python-msgpack
 Requires:       python-oslo-config >= 1.15.0
 Requires:       python-oslo-db >= 1.8.0
 Requires:       python-oslo-log >= 1.0.0
+Requires:       python-oslo-middleware
 Requires:       python-oslo-policy >= 0.3.0
 Requires:       python-oslo-sphinx >= 2.2.0
 Requires:       python-oslo-serialization >= 1.4.0
@@ -50,18 +51,18 @@ Requires:       python-pytimeparse >= 1.1.5
 Requires:       python-retrying
 Requires:       python-requests
 Requires:       python-swiftclient
-Requires:	python-six
-Requires:	python-sqlalchemy
+Requires:       python-six
+Requires:       python-sqlalchemy
 Requires:       python-sqlalchemy-utils
-Requires:	python-stevedore
-Requires:	python-sysv_ipc
+Requires:       python-stevedore
+Requires:       python-sysv_ipc
 Requires:       python-tooz >= 0.11
-Requires:	python-trollius
-Requires:	python-voluptuous
-Requires:	python-werkzeug
+Requires:       python-trollius
+Requires:       python-voluptuous
+Requires:       python-werkzeug
 Requires:       pytz
-Requires:	PyYAML
-Requires:       python-webob >= 1.2.3
+Requires:       PyYAML
+Requires:       python-webob >= 1.4.1
 Requires:       python-alembic
 Requires:       python-psycopg2
 
@@ -301,6 +302,9 @@ exit 0
 
 
 %changelog
+* Tue Jan 19 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 1.3.3-1
+- Upstream 1.3.3
+
 * Thu Nov 19 2015 Alan Pevec <apevec@redhat.com> - 1.3.0-5
 - Include api-paste.ini rhbz#1283755
 
