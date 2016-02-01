@@ -214,6 +214,8 @@ install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/%{name}-api.service
 install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/%{name}-metricd.service
 install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-statsd.service
 
+# Remove all of the conf files that are included in the buildroot/usr/etc dir since we installed them above
+rm -f %{buildroot}/usr/etc/gnocchi/*
 
 %pre common
 getent group gnocchi >/dev/null || groupadd -r gnocchi
