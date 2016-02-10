@@ -22,6 +22,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  python-sphinx
 BuildRequires:  python-pbr
 BuildRequires:  python2-devel
+BuildRequires:  systemd
 
 
 %description
