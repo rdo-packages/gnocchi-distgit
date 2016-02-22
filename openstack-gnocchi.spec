@@ -35,7 +35,8 @@ Requires:       numpy
 Requires:       python-flask
 Requires:       python-futures
 Requires:       python-jinja2
-Requires:       python-keystonemiddleware >= 2.3.0
+Requires:       python-keystonemiddleware >= 4.0.0
+Requires:       python-lz4
 Requires:       python-msgpack
 Requires:       python-oslo-config >= 2.6.0
 Requires:       python-oslo-db >= 1.8.0
@@ -57,7 +58,7 @@ Requires:       python-sqlalchemy
 Requires:       python-sqlalchemy-utils
 Requires:       python-stevedore
 Requires:       python-sysv_ipc
-Requires:       python-tooz >= 0.11
+Requires:       python-tooz >= 0.30
 Requires:       python-trollius
 Requires:       python-voluptuous
 Requires:       python-werkzeug
