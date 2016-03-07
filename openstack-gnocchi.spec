@@ -155,6 +155,13 @@ components and index resources.
 
 This package contains the gnocchi statsd daemon
 
+%package -n python-gnocchi-tests
+Summary:        Gnocchi tests
+Requires:       python-gnocchi = %{version}-%{release}
+
+%description -n python-gnocchi-tests
+This package contains the Gnocchi test files.
+
 %if 0%{?with_doc}
 %package doc
 Summary:          Documentation for OpenStack gnocchi
@@ -247,6 +254,12 @@ exit 0
 %files -n python-gnocchi
 %{python2_sitelib}/gnocchi
 %{python2_sitelib}/gnocchi-*.egg-info
+
+%exclude %{python2_sitelib}/gnocchi/tests
+
+%files -n python-gnocchi-tests
+%license LICENSE
+%{python2_sitelib}/gnocchi/tests
 
 %files api
 %defattr(-,root,root,-)
