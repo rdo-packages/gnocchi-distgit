@@ -4,13 +4,13 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-gnocchi
-Version:        xxx
-Release:        xxx
+Version:        2.0.2
+Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        APL 2.0
 URL:            http://github.com/openstack/gnocchi
-Source0:        https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}%{?milestone}.tar.gz
 Source1:        %{pypi_name}.conf.sample
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
@@ -302,3 +302,5 @@ exit 0
 %changelog
 
 
+* Wed Mar 23 2016 RDO <rdo-list@redhat.com> 2.0.2-1
+- RC1 Rebuild for Mitaka RC1 
