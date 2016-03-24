@@ -4,8 +4,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-gnocchi
-Version:        xxx
-Release:        xxx
+Version:        XXX
+Release:        XXX
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        APL 2.0
@@ -300,5 +300,3 @@ exit 0
 
 
 %changelog
-
-
