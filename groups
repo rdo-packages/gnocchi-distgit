@@ -1,5 +1,5 @@
-# UUID          Group Name
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
-9ab98fa5ca1b8ff1dd6c14cd889bc745fa951d38       	gnocchi-distgit-core
-2832491a094dfc2006d176bb1ce0a8db7f7ba4eb        	gnocchi-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+2832491a094dfc2006d176bb1ce0a8db7f7ba4eb	openstack/gnocchi-distgit-ptl
+9ab98fa5ca1b8ff1dd6c14cd889bc745fa951d38	gnocchi-distgit-core
+global:Registered-Users                 	Registered Users
