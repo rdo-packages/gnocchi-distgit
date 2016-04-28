@@ -32,7 +32,6 @@ HTTP API to store metrics and index resources.
 Summary:        OpenStack gnocchi python libraries
 
 Requires:       numpy
-Requires:       python-flask
 Requires:       python-futures
 Requires:       python-jinja2
 Requires:       python-keystonemiddleware >= 4.0.0
