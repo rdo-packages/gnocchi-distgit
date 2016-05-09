@@ -11,7 +11,7 @@ Summary:        Gnocchi is a API to store metrics and index resources
 License:        APL 2.0
 URL:            http://github.com/openstack/gnocchi
 Source0:        https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-Source1:        %{pypi_name}.conf.sample
+Source1:        %{pypi_name}-dist.conf
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
 Source11:       %{name}-metricd.service
@@ -107,6 +107,32 @@ file service.
 %package        common
 Summary:        Components common to all OpenStackk gnocchi services
 
+# Config file generation
+BuildRequires:    python-oslo-config >= 2.6.0
+BuildRequires:    python-oslo-concurrency
+BuildRequires:    python-oslo-db
+BuildRequires:    python-oslo-log
+BuildRequires:    python-oslo-messaging
+BuildRequires:    python-oslo-policy
+BuildRequires:    python-oslo-reports
+BuildRequires:    python-oslo-service
+BuildRequires:    python-oslo-vmware >= 0.6.0
+BuildRequires:    python-ceilometerclient
+BuildRequires:    python-glanceclient >= 1:2.0.0
+BuildRequires:    python-keystonemiddleware
+BuildRequires:    python-neutronclient
+BuildRequires:    python-novaclient  >= 1:2.29.0
+BuildRequires:    python-swiftclient
+BuildRequires:    python-croniter
+BuildRequires:    python-jsonpath-rw
+BuildRequires:    python-jsonpath-rw-ext
+BuildRequires:    python-lxml
+BuildRequires:    python-pecan >= 1.0.0
+BuildRequires:    python-tooz
+BuildRequires:    python-werkzeug
+BuildRequires:    python-wsme >= 0.7
+BuildRequires:    python-gnocchiclient >= 2.1.0
+
 Requires:       python-gnocchi = %{version}-%{release}
 
 
@@ -189,9 +215,21 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 %build
 
+# Generate config file
+PYTHONPATH=. oslo-config-generator --config-file=etc/gnocchi/gnocchi-config-generator.conf
+
 %{__python2} setup.py build
 
-install -p -D -m 640 %{SOURCE1} etc/gnocchi/gnocchi.conf.sample
+# Programmatically update defaults in sample config
+# which is installed at /etc/gnocchi/gnocchi.conf
+# TODO: Make this more robust
+# Note it only edits the first occurrence, so assumes a section ordering in sample
+# and also doesn't support multi-valued variables.
+while read name eq value; do
+  test "$name" && test "$value" || continue
+  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" etc/gnocchi/gnocchi.conf
+done < %{SOURCE1}
+
 
 %install
 
@@ -201,7 +239,8 @@ mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig/
 mkdir -p %{buildroot}/%{_sysconfdir}/gnocchi/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
 
-install -p -D -m 640 etc/gnocchi/gnocchi.conf.sample %{buildroot}%{_sysconfdir}/gnocchi/gnocchi.conf
+install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/gnocchi/gnocchi-dist.conf
+install -p -D -m 640 etc/gnocchi/gnocchi.conf %{buildroot}%{_sysconfdir}/gnocchi/gnocchi.conf
 install -p -D -m 640 etc/gnocchi/api-paste.ini %{buildroot}%{_sysconfdir}/gnocchi/api-paste.ini
 
 #TODO(prad): build the docs at run time, once the we get rid of postgres setup dependency
@@ -270,6 +309,7 @@ exit 0
 
 %files common
 %dir %{_sysconfdir}/gnocchi
+%attr(-, root, gnocchi) %{_datadir}/gnocchi/gnocchi-dist.conf
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/gnocchi.conf
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/api-paste.ini
