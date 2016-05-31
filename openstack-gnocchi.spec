@@ -5,7 +5,7 @@
 
 Name:           openstack-gnocchi
 Version:        2.0.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        APL 2.0
@@ -329,7 +329,8 @@ exit 0
 
 
 %changelog
-
+* Tue May 31 2016 Alan Pevec <apevec AT redhat.com> 2.0.2-2
+- Auto generate gnocchi.conf rhbz#1331510
 
 * Wed Mar 23 2016 RDO <rdo-list@redhat.com> 2.0.2-1
 - RC1 Rebuild for Mitaka RC1 
