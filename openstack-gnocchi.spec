@@ -44,8 +44,9 @@ Requires:       python-oslo-middleware
 Requires:       python-oslo-policy >= 0.3.0
 Requires:       python-oslo-sphinx >= 2.2.0
 Requires:       python-oslo-serialization >= 1.4.0
-Requires:       python-oslo-utils >= 1.6.0
+Requires:       python-oslo-utils >= 3.3.0
 Requires:       python-pandas >= 0.17.0
+Requires:       python-paste
 Requires:       python-paste-deploy
 Requires:       python-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
@@ -67,6 +68,8 @@ Requires:       python-webob >= 1.4.1
 Requires:       python-alembic
 Requires:       python-psycopg2
 Requires:       python-prettytable
+Requires:       python-cotyledon >= 1.2.2
+Requires:       python-pbr
 
 %description -n   python-gnocchi
 OpenStack gnocchi provides API to store metrics from OpenStack components
