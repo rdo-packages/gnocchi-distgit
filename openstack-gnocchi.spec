@@ -4,13 +4,13 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-gnocchi
-Version:        2.0.2
-Release:        3%{?dist}
+Version:        2.1.4
+Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        APL 2.0
 URL:            http://github.com/openstack/gnocchi
-Source0:        https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}%{?milestone}.tar.gz
+Source0:        https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}%{?milestone}.tar.gz
 Source1:        %{pypi_name}-dist.conf
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
@@ -330,6 +330,9 @@ exit 0
 
 
 %changelog
+* Thu Jul 28 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.1.4-1
+- Update to 2.1.4
+
 * Thu Jul 28 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 2.0.2-3
 - Add missing gabbi dependency
 
