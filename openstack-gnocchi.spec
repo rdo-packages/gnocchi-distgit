@@ -5,7 +5,7 @@
 
 Name:           openstack-gnocchi
 Version:        2.0.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        APL 2.0
@@ -330,6 +330,9 @@ exit 0
 
 
 %changelog
+* Thu Jul 28 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 2.0.2-3
+- Add missing gabbi dependency
+
 * Tue May 31 2016 Alan Pevec <apevec AT redhat.com> 2.0.2-2
 - Auto generate gnocchi.conf rhbz#1331510
 
