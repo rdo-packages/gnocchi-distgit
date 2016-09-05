@@ -69,6 +69,7 @@ Requires:       python-alembic
 Requires:       python-psycopg2
 Requires:       python-prettytable
 Requires:       python-cotyledon >= 1.2.2
+Requires:       python-jsonpatch
 
 %description -n   python-gnocchi
 OpenStack gnocchi provides API to store metrics from OpenStack components
