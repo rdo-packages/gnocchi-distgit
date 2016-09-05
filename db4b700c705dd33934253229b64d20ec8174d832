@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "facab960_2b9b89ca",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2016-09-05T16:31:38Z",
+      "side": 1,
+      "message": "Will it also be needed during build (for example when generating documentation)?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 32
+      },
+      "revId": "db4b700c705dd33934253229b64d20ec8174d832",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
