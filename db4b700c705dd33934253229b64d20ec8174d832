@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "facab960_b6cd4089",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-09-07T00:56:16Z",
+      "side": 1,
+      "message": "cross-gerrit depends-on do not work, please remove to avoid confusion",
+      "revId": "db4b700c705dd33934253229b64d20ec8174d832",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "facab960_2b9b89ca",
         "filename": "openstack-gnocchi.spec",
         "patchSetId": 2
