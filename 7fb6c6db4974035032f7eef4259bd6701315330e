@@ -34,6 +34,24 @@
       "revId": "7fb6c6db4974035032f7eef4259bd6701315330e",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "facab960_ebf8a8e7",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-09-22T16:32:10Z",
+      "side": 1,
+      "message": "Right and lookging from a distro perspective, RDO Newton is not going to ship anything older than 4.13.3 so this is fine. But strictly speaking \u003e\u003d 4.8.0 is not correct constraint and in RPM we can\u0027t do fancy stuff like !\u003d etc. so safest is to put \u003e\u003d UPPER.CONSTRAINT.VERSION\n\nOTOH rdopkg reqcheck doesn\u0027t know yet about upper-constraints so let\u0027s merge this as the obvious improvement.",
+      "parentUuid": "facab960_708d677b",
+      "revId": "7fb6c6db4974035032f7eef4259bd6701315330e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
