@@ -52,7 +52,7 @@ Requires:       python-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
 Requires:       python-retrying
 Requires:       python-requests
-Requires:       python-swiftclient >= 2.5.0
+Requires:       python-swiftclient >= 3.1.0
 Requires:       python-six
 Requires:       python-sqlalchemy
 Requires:       python-sqlalchemy-utils
