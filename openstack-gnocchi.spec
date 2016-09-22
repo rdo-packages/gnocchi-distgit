@@ -4,7 +4,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-gnocchi
-Version:        2.2.0
+Version:        3.0.0
 Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
@@ -333,6 +333,9 @@ exit 0
 
 
 %changelog
+* Thu Sep 22 2016 Mehdi Abaakouk <sileht@redhat.com> 3.0.0-1
+- Update to 3.0.0
+
 * Fri Sep 16 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.2.0-1
 - Update to 2.2.0
 
