@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "facab960_6dd8301e",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-09-22T09:58:55Z",
+      "side": 1,
+      "message": "Should not that be 4.13.3 to ensure we don\u0027t hit broken versions?\n[openstack-dev] [oslo] [telemetry] Oslo.db 4.13.1 broke Gnocchi",
+      "revId": "7fb6c6db4974035032f7eef4259bd6701315330e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
