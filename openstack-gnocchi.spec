@@ -38,7 +38,7 @@ Requires:       python-keystonemiddleware >= 4.0.0
 Requires:       python-lz4
 Requires:       python-msgpack
 Requires:       python-oslo-config >= 2.6.0
-Requires:       python-oslo-db >= 1.8.0
+Requires:       python-oslo-db >= 4.8.0
 Requires:       python-oslo-log >= 1.0.0
 Requires:       python-oslo-middleware
 Requires:       python-oslo-policy >= 0.3.0
