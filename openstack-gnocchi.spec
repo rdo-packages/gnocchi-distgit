@@ -50,7 +50,6 @@ Requires:       python-paste
 Requires:       python-paste-deploy
 Requires:       python-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
-Requires:       python-retrying
 Requires:       python-requests
 Requires:       python-swiftclient >= 3.1.0
 Requires:       python-six
@@ -60,6 +59,7 @@ Requires:       python-stevedore
 Requires:       python-sysv_ipc
 Requires:       python-tooz >= 0.30
 Requires:       python-trollius
+Requires:       python-tenacity > 3.1.0
 Requires:       python-voluptuous
 Requires:       python-werkzeug
 Requires:       pytz
