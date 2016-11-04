@@ -230,6 +230,22 @@ done < %{SOURCE1}
 
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
+# Create fake egg-info for the tempest plugin
+# TODO switch to %{service} everywhere as in openstack-example.spec
+%global service gnocchi
+egg_path=%{buildroot}%{python_sitelib}/%{service}-*.egg-info
+tempest_egg_path=%{buildroot}%{python_sitelib}/%{service}_tests.egg-info
+mkdir $tempest_egg_path
+grep "tempest\|Tempest" %{service}.egg-info/entry_points.txt >$tempest_egg_path/entry_points.txt
+cat > $tempest_egg_path/PKG-INFO <<EOF
+Metadata-Version: 1.1
+Name: %{service}_tests
+Version: %{upstream_version}
+Summary: %{summary} Tempest Plugin
+EOF
+# Remove any reference to Tempest plugin in the main package entry point
+sed -i "/tempest\|Tempest/d" $egg_path/entry_points.txt
+
 mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig/
 mkdir -p %{buildroot}/%{_sysconfdir}/gnocchi/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
@@ -287,12 +303,12 @@ exit 0
 %files -n python-gnocchi
 %{python2_sitelib}/gnocchi
 %{python2_sitelib}/gnocchi-*.egg-info
-
 %exclude %{python2_sitelib}/gnocchi/tests
 
 %files -n python-gnocchi-tests
 %license LICENSE
 %{python2_sitelib}/gnocchi/tests
+%{python2_sitelib}/%{service}_tests.egg-info
 
 %files api
 %defattr(-,root,root,-)
