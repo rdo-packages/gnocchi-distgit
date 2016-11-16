@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5adbc538_2e770504",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-11-16T17:59:44Z",
+      "side": 1,
+      "message": "Ideally we\u0027d move it to _datadir if not user-modifiable, but need to think about the upgrade path...",
+      "revId": "ceee528408569a1e48e2fccd6e6fadf0cf08854b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
