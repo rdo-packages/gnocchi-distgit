@@ -305,9 +305,9 @@ exit 0
 %files common
 %dir %{_sysconfdir}/gnocchi
 %attr(-, root, gnocchi) %{_datadir}/gnocchi/gnocchi-dist.conf
+%attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/api-paste.ini
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/gnocchi.conf
-%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/api-paste.ini
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, gnocchi, root)  %{_localstatedir}/log/gnocchi
 
