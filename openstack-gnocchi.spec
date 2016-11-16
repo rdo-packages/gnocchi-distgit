@@ -5,7 +5,7 @@
 
 Name:           openstack-gnocchi
 Version:        3.0.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
@@ -304,9 +304,9 @@ exit 0
 %files common
 %dir %{_sysconfdir}/gnocchi
 %attr(-, root, gnocchi) %{_datadir}/gnocchi/gnocchi-dist.conf
+%config %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/api-paste.ini
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/gnocchi.conf
-%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/api-paste.ini
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, gnocchi, root)  %{_localstatedir}/log/gnocchi
 
