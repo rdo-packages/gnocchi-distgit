@@ -293,11 +293,13 @@ exit 0
 %{python2_sitelib}/gnocchi
 %{python2_sitelib}/gnocchi-*.egg-info
 %exclude %{python2_sitelib}/gnocchi/tests
+%exclude %{python2_sitelib}/gnocchi/tempest
 
 %files -n python-gnocchi-tests
 %license LICENSE
 %{python2_sitelib}/gnocchi/tests
 %{python2_sitelib}/%{service}_tests.egg-info
+%{python2_sitelib}/gnocchi/tempest
 
 %files api
 %defattr(-,root,root,-)
