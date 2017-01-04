@@ -16,6 +16,23 @@
       "revId": "1726bbc6bf65ec8d41dfe2c03619d36f9eb8d7b8",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dab895d6_39bbefc5",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 281
+      },
+      "writtenOn": "2017-01-04T10:05:30Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "1726bbc6bf65ec8d41dfe2c03619d36f9eb8d7b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
