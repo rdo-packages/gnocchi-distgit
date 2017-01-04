@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dab895d6_f9a9777c",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 281
+      },
+      "writtenOn": "2017-01-04T10:05:03Z",
+      "side": 1,
+      "message": "If you don\u0027t copy api-paste, this should not be necessary either, it should be copied with setup.py install.",
+      "revId": "1726bbc6bf65ec8d41dfe2c03619d36f9eb8d7b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
