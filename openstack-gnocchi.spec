@@ -24,7 +24,7 @@ BuildRequires:  python-pbr
 BuildRequires:  python2-devel
 BuildRequires:  systemd
 BuildRequires:  python-tenacity > 3.1.0
-
+BuildRequires:  openstack-macros
 
 %description
 HTTP API to store metrics and index resources.
@@ -85,7 +85,6 @@ Summary:        OpenStack gnocchi api
 
 Requires:       %{name}-common = %{version}-%{release}
 Requires:       %{name}-indexer-sqlalchemy = %{version}-%{release}
-Requires:       %{name}-carbonara =  %{version}-%{release}
 
 
 %description api
@@ -93,20 +92,6 @@ OpenStack gnocchi provides API to store metrics from OpenStack components
 and index resources.
 
 This package contains the gnocchi API service.
-
-%package        carbonara
-
-Summary:        OpenStack gnocchi carbonara
-
-Requires:       %{name}-common = %{version}-%{release}
-
-%description carbonara
-OpenStack gnocchi provides API to store metrics from OpenStack
-components and index resources.
-
-This package contains the gnocchi carbonara backend including swift,ceph and
-file service.
-
 
 %package        common
 Summary:        Components common to all OpenStackk gnocchi services
@@ -211,7 +196,7 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 %build
 
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=etc/gnocchi/gnocchi-config-generator.conf
+PYTHONPATH=. oslo-config-generator --config-file=gnocchi/gnocchi-config-generator.conf --output-file=gnocchi/gnocchi.conf
 
 %{__python2} setup.py build
 
@@ -222,7 +207,7 @@ PYTHONPATH=. oslo-config-generator --config-file=etc/gnocchi/gnocchi-config-gene
 # and also doesn't support multi-valued variables.
 while read name eq value; do
   test "$name" && test "$value" || continue
-  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" etc/gnocchi/gnocchi.conf
+  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" gnocchi/gnocchi.conf
 done < %{SOURCE1}
 
 
@@ -240,13 +225,12 @@ mkdir -p %{buildroot}/%{_sysconfdir}/gnocchi/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
 
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/gnocchi/gnocchi-dist.conf
-install -p -D -m 640 etc/gnocchi/gnocchi.conf %{buildroot}%{_sysconfdir}/gnocchi/gnocchi.conf
-install -p -D -m 640 etc/gnocchi/api-paste.ini %{buildroot}%{_sysconfdir}/gnocchi/api-paste.ini
+install -p -D -m 640 gnocchi/gnocchi.conf %{buildroot}%{_sysconfdir}/gnocchi/gnocchi.conf
 
 #TODO(prad): build the docs at run time, once the we get rid of postgres setup dependency
 
 # Configuration
-cp -R etc/gnocchi/policy.json %{buildroot}/%{_sysconfdir}/gnocchi
+cp -R gnocchi/rest/policy.json %{buildroot}/%{_sysconfdir}/gnocchi
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/gnocchi
@@ -306,13 +290,9 @@ exit 0
 %{_bindir}/gnocchi-api
 %{_unitdir}/%{name}-api.service
 
-%files carbonara
-%{_bindir}/carbonara-dump
-
 %files common
 %dir %{_sysconfdir}/gnocchi
 %attr(-, root, gnocchi) %{_datadir}/gnocchi/gnocchi-dist.conf
-%config %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/api-paste.ini
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/gnocchi.conf
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/logrotate.d/%{name}
@@ -321,6 +301,7 @@ exit 0
 %defattr(-, gnocchi, gnocchi, -)
 %dir %{_sharedstatedir}/gnocchi
 %dir %{_sharedstatedir}/gnocchi/tmp
+%{_bindir}/gnocchi-config-generator
 
 
 %files indexer-sqlalchemy
