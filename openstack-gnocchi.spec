@@ -24,6 +24,7 @@ BuildRequires:  python-pbr
 BuildRequires:  python2-devel
 BuildRequires:  systemd
 BuildRequires:  python-tenacity > 3.1.0
+BuildRequires:  openstack-macros
 
 %description
 HTTP API to store metrics and index resources.
