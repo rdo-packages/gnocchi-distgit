@@ -114,6 +114,7 @@ BuildRequires:    python-gnocchiclient >= 2.1.0
 
 Requires:       python-gnocchi = %{version}-%{release}
 
+Obsoletes:        openstack-gnocchi-carbonara
 
 %description    common
 OpenStack gnocchi provides services to measure and
