@@ -61,6 +61,7 @@ Requires:       python-sysv_ipc
 Requires:       python-tooz >= 0.30
 Requires:       python-trollius
 Requires:       python-tenacity > 3.1.0
+Requires:       python-ujson
 Requires:       python-voluptuous
 Requires:       python-werkzeug
 Requires:       pytz
