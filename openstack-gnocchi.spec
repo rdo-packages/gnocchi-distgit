@@ -46,7 +46,7 @@ Requires:       python-oslo-policy >= 0.3.0
 Requires:       python-oslo-sphinx >= 2.2.0
 Requires:       python-oslo-serialization >= 1.4.0
 Requires:       python-oslo-utils >= 3.3.0
-Requires:       python-pandas >= 0.17.0
+Requires:       python-pandas >= 0.18.0
 Requires:       python-paste
 Requires:       python-paste-deploy
 Requires:       python-pecan >= 0.9
@@ -107,7 +107,7 @@ BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslo-service
 BuildRequires:    python-lz4
-BuildRequires:    python-pandas >= 0.17.0
+BuildRequires:    python-pandas >= 0.18.0
 BuildRequires:    python-pytimeparse >= 1.1.5
 BuildRequires:    python-tooz
 BuildRequires:    python-werkzeug
