@@ -110,7 +110,7 @@ BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslo-service
 BuildRequires:    python-lz4
-BuildRequires:    python-pandas >= 0.17.0
+BuildRequires:    python-pandas >= 0.18.0
 BuildRequires:    python-pytimeparse >= 1.1.5
 BuildRequires:    python-tooz
 BuildRequires:    python-werkzeug
