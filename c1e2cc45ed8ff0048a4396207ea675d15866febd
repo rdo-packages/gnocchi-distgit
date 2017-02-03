@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "baada198_4231830a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 74
+      },
+      "writtenOn": "2017-02-03T12:36:51Z",
+      "side": 1,
+      "message": "it was in master. We dont want to remove in newton.",
+      "parentUuid": "baada198_ff05d014",
+      "revId": "c1e2cc45ed8ff0048a4396207ea675d15866febd",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baada198_bf0b582a",
         "filename": "openstack-gnocchi-api.service",
         "patchSetId": 1
