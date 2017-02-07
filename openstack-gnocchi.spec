@@ -32,7 +32,7 @@ HTTP API to store metrics and index resources.
 %package -n     python-gnocchi
 Summary:        OpenStack gnocchi python libraries
 
-Requires:       numpy
+Requires:       numpy >= 1.9.0 
 Requires:       python-futures
 Requires:       python-jinja2
 Requires:       python-keystonemiddleware >= 4.0.0
