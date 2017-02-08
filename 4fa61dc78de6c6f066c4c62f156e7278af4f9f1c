@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baada198_8acc8d37",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-02-08T02:12:11Z",
+      "side": 1,
+      "message": "introduced in https://review.openstack.org/422445",
+      "revId": "4fa61dc78de6c6f066c4c62f156e7278af4f9f1c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baada198_6ac73913",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-02-08T02:12:11Z",
+      "side": 1,
+      "message": "EOL space",
+      "range": {
+        "startLine": 35,
+        "startChar": 30,
+        "endLine": 35,
+        "endChar": 31
+      },
+      "revId": "4fa61dc78de6c6f066c4c62f156e7278af4f9f1c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
