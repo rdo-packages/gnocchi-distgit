@@ -39,7 +39,7 @@ Requires:       python-jinja2
 Requires:       python-keystonemiddleware >= 4.0.0
 Requires:       python-lz4
 Requires:       python-msgpack
-Requires:       python-oslo-config >= 2.6.0
+Requires:       python-oslo-config >= 2.7.0
 Requires:       python-oslo-db >= 4.8.0
 Requires:       python-oslo-log >= 2.3.0
 Requires:       python-oslo-middleware >= 3.22.0
@@ -54,7 +54,7 @@ Requires:       python-pbr
 Requires:       python-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
 Requires:       python-requests
-Requires:       python-scipy
+Requires:       python-scipy >= 0.18.1
 Requires:       python-swiftclient >= 3.1.0
 Requires:       python-six
 Requires:       python-sqlalchemy
