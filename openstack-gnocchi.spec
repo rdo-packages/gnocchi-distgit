@@ -327,3 +327,4 @@ exit 0
 
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/gnocchi/commit/?id=2354c59c5490488659e370be09e04c805e16ef65
