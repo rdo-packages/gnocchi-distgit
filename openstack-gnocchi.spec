@@ -37,7 +37,7 @@ Requires:       python-futures
 Requires:       python-iso8601
 Requires:       python-jinja2
 Requires:       python-keystonemiddleware >= 4.0.0
-Requires:       python-lz4
+Requires:       python-lz4 >= 0.9.0
 Requires:       python-msgpack
 Requires:       python-oslo-config >= 2.6.0
 Requires:       python-oslo-db >= 4.8.0
@@ -109,7 +109,7 @@ BuildRequires:    python-oslo-messaging
 BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslo-service
-BuildRequires:    python-lz4
+BuildRequires:    python-lz4 >= 0.9.0
 BuildRequires:    python-pandas >= 0.18.0
 BuildRequires:    python-pytimeparse >= 1.1.5
 BuildRequires:    python-tooz
