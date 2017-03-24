@@ -296,6 +296,7 @@ exit 0
 %{_unitdir}/%{name}-api.service
 
 %files common
+%{_bindir}/gnocchi-config-generator
 %dir %{_sysconfdir}/gnocchi
 %attr(-, root, gnocchi) %{_datadir}/gnocchi/gnocchi-dist.conf
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
@@ -306,7 +307,6 @@ exit 0
 %defattr(-, gnocchi, gnocchi, -)
 %dir %{_sharedstatedir}/gnocchi
 %dir %{_sharedstatedir}/gnocchi/tmp
-%{_bindir}/gnocchi-config-generator
 
 
 %files indexer-sqlalchemy
