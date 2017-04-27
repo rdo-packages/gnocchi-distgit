@@ -167,7 +167,7 @@ This package contains the gnocchi statsd daemon
 %package -n python-gnocchi-tests
 Summary:        Gnocchi tests
 Requires:       python-gnocchi = %{version}-%{release}
-Requires:       python-gabbi
+Requires:       python-gabbi >= 1.30.0
 
 %description -n python-gnocchi-tests
 This package contains the Gnocchi test files.
