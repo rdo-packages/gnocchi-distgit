@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa201ad_451d1ebd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-05-19T21:12:27Z",
+      "side": 1,
+      "message": "nice-to-have would be a link to upstream change introducing the new binary",
+      "revId": "6b44913a5b7d04986edade3037c9750e1cbc4f00",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
