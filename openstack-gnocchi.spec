@@ -297,6 +297,7 @@ exit 0
 
 %files common
 %{_bindir}/gnocchi-config-generator
+%{_bindir}/gnocchi-change-sack-size
 %dir %{_sysconfdir}/gnocchi
 %attr(-, root, gnocchi) %{_datadir}/gnocchi/gnocchi-dist.conf
 %config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
