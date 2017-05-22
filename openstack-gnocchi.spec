@@ -4,13 +4,13 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-gnocchi
-Version:        3.1.4
+Version:        3.1.5
 Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
 URL:            http://github.com/openstack/gnocchi
-Source0:        https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 Source1:        %{pypi_name}-dist.conf
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
@@ -19,7 +19,7 @@ Source12:       %{name}-statsd.service
 BuildArch:      noarch
 
 BuildRequires:  python-setuptools
-BuildRequires:  python-sphinx
+BuildRequires:  python-sphinx < 1.6.0
 BuildRequires:  python-pbr
 BuildRequires:  python2-devel
 BuildRequires:  systemd
@@ -327,6 +327,9 @@ exit 0
 
 
 %changelog
+* Wed May 22 2017 Pradeep Kilambi <pkilambi@redhat.com> 3.1.5-1
+- Update to 3.1.5
+
 * Wed May 10 2017 Pradeep Kilambi <pkilambi@redhat.com> 3.1.4-1
 - Update to 3.1.4
 
