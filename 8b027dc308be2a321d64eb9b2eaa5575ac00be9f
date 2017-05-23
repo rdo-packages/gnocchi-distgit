@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa201ad_f11c1016",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-05-23T23:56:49Z",
+      "side": 1,
+      "message": "we don\u0027t do \u003c esp not in BRs, they need to be ensure by the distro",
+      "revId": "8b027dc308be2a321d64eb9b2eaa5575ac00be9f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
