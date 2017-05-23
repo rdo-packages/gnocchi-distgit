@@ -10,7 +10,7 @@ Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
 URL:            http://github.com/openstack/gnocchi
-Source0:        https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 Source1:        %{pypi_name}-dist.conf
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
