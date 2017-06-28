@@ -100,7 +100,7 @@ and index resources.
 This package contains the gnocchi API service.
 
 %package        common
-Summary:        Components common to all OpenStackk gnocchi services
+Summary:        Components common to all OpenStack gnocchi services
 
 # Config file generation
 BuildRequires:    python-daiquiri
