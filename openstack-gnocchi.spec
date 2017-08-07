@@ -23,7 +23,7 @@ BuildRequires:  python-sphinx
 BuildRequires:  python-pbr
 BuildRequires:  python2-devel
 BuildRequires:  systemd
-BuildRequires:  python-tenacity > 3.1.0
+BuildRequires:  python-tenacity >= 4.0.0
 BuildRequires:  openstack-macros
 
 %description
@@ -33,13 +33,15 @@ HTTP API to store metrics and index resources.
 Summary:        OpenStack gnocchi python libraries
 
 Requires:       numpy >= 1.9.0
+Requires:       python-daiquiri
 Requires:       python-futures
 Requires:       python-iso8601
 Requires:       python-jinja2
 Requires:       python-keystonemiddleware >= 4.0.0
 Requires:       python-lz4 >= 0.9.0
+Requires:       python-monotonic
 Requires:       python-msgpack
-Requires:       python-oslo-config >= 2.6.0
+Requires:       python-oslo-config >= 2:3.22.0
 Requires:       python-oslo-db >= 4.8.0
 Requires:       python-oslo-log >= 2.3.0
 Requires:       python-oslo-middleware >= 3.22.0
@@ -63,7 +65,7 @@ Requires:       python-stevedore
 Requires:       python-sysv_ipc
 Requires:       python-tooz >= 0.30
 Requires:       python-trollius
-Requires:       python-tenacity >= 3.1.0
+Requires:       python-tenacity >= 4.0.0
 Requires:       python-ujson
 Requires:       python-voluptuous
 Requires:       python-werkzeug
@@ -101,7 +103,9 @@ This package contains the gnocchi API service.
 Summary:        Components common to all OpenStackk gnocchi services
 
 # Config file generation
-BuildRequires:    python-oslo-config >= 2.6.0
+BuildRequires:    python-daiquiri
+BuildRequires:    python-jsonpatch
+BuildRequires:    python-oslo-config >= 2:3.22.0
 BuildRequires:    python-oslo-concurrency
 BuildRequires:    python-oslo-db
 BuildRequires:    python-oslo-log
