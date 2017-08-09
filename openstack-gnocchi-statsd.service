@@ -5,7 +5,7 @@ After=syslog.target network.target
 [Service]
 Type=simple
 User=gnocchi
-ExecStart=/usr/bin/gnocchi-statsd --logfile /var/log/gnocchi/statsd.log
+ExecStart=/usr/bin/gnocchi-statsd --log-file /var/log/gnocchi/statsd.log
 Restart=on-failure
 
 [Install]
