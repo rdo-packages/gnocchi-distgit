@@ -121,6 +121,7 @@ BuildRequires:    python-tooz
 BuildRequires:    python-ujson
 BuildRequires:    python-werkzeug
 BuildRequires:    python-gnocchiclient >= 2.1.0
+BuildRequires:    openstack-macros 
 
 Requires:       python-gnocchi = %{version}-%{release}
 
@@ -201,7 +202,7 @@ find gnocchi -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 
-rm -rf {test-,}requirements.txt tools/{pip,test}-requires
+%py_req_cleanup
 
 
 %build
