@@ -1,15 +1,16 @@
 %global pypi_name gnocchi
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
+%global service gnocchi
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
-Name:           openstack-gnocchi
+Name:           openstack-%{service}
 Version:        XXX
 Release:        XXX
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
-URL:            http://github.com/gnocchixyz/gnocchi
+URL:            http://github.com/gnocchixyz/%{service}
 Source0:        https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 Source1:        %{pypi_name}-dist.conf
 Source2:        %{pypi_name}.logrotate
@@ -29,8 +30,8 @@ BuildRequires:  openstack-macros
 %description
 HTTP API to store metrics and index resources.
 
-%package -n     python-gnocchi
-Summary:        OpenStack gnocchi python libraries
+%package -n     python-%{service}
+Summary:        OpenStack %{service} python libraries
 
 Requires:       numpy >= 1.9.0
 Requires:       python-daiquiri
@@ -78,29 +79,29 @@ Requires:       python-prettytable
 Requires:       python-cotyledon >= 1.5.0
 Requires:       python-jsonpatch
 
-%description -n   python-gnocchi
-OpenStack gnocchi provides API to store metrics from OpenStack components
+%description -n   python-%{service}
+OpenStack %{service} provides API to store metrics from OpenStack components
 and index resources.
 
-This package contains the gnocchi python library.
+This package contains the %{service} python library.
 
 
 %package        api
 
-Summary:        OpenStack gnocchi api
+Summary:        OpenStack %{service} api
 
 Requires:       %{name}-common = %{version}-%{release}
 Requires:       %{name}-indexer-sqlalchemy = %{version}-%{release}
 
 
 %description api
-OpenStack gnocchi provides API to store metrics from OpenStack components
+OpenStack %{service} provides API to store metrics from OpenStack components
 and index resources.
 
-This package contains the gnocchi API service.
+This package contains the %{service} API service.
 
 %package        common
-Summary:        Components common to all OpenStack gnocchi services
+Summary:        Components common to all OpenStack %{service} services
 
 # Config file generation
 BuildRequires:    python-daiquiri
@@ -122,82 +123,82 @@ BuildRequires:    python-ujson
 BuildRequires:    python-werkzeug
 BuildRequires:    python-gnocchiclient >= 2.1.0
 
-Requires:       python-gnocchi = %{version}-%{release}
+Requires:       python-%{service} = %{version}-%{release}
 
-Obsoletes:        openstack-gnocchi-carbonara
+Obsoletes:        openstack-%{service}-carbonara
 
 %description    common
-OpenStack gnocchi provides services to measure and
+OpenStack %{service} provides services to measure and
 collect metrics from OpenStack components.
 
 
 %package        indexer-sqlalchemy
 
-Summary:        OpenStack gnocchi indexer sqlalchemy driver
+Summary:        OpenStack %{service} indexer sqlalchemy driver
 
 Requires:       %{name}-common = %{version}-%{release}
 
 
 %description indexer-sqlalchemy
-OpenStack gnocchi provides API to store metrics from OpenStack
+OpenStack %{service} provides API to store metrics from OpenStack
 components and index resources.
 
-This package contains the gnocchi indexer with sqlalchemy driver.
+This package contains the %{service} indexer with sqlalchemy driver.
 
 
 %package        metricd
 
-Summary:        OpenStack gnocchi metricd daemon
+Summary:        OpenStack %{service} metricd daemon
 
 Requires:       %{name}-common = %{version}-%{release}
 
 %description metricd
-OpenStack gnocchi provides API to store metrics from OpenStack
+OpenStack %{service} provides API to store metrics from OpenStack
 components and index resources.
 
-This package contains the gnocchi metricd daemon
+This package contains the %{service} metricd daemon
 
 
 %package        statsd
 
-Summary:        OpenStack gnocchi statsd daemon
+Summary:        OpenStack %{service} statsd daemon
 
 Requires:       %{name}-common = %{version}-%{release}
 
 %description statsd
-OpenStack gnocchi provides API to store metrics from OpenStack
+OpenStack %{service} provides API to store metrics from OpenStack
 components and index resources.
 
-This package contains the gnocchi statsd daemon
+This package contains the %{service} statsd daemon
 
-%package -n python-gnocchi-tests
+%package -n python-%{service}-tests
 Summary:        Gnocchi tests
-Requires:       python-gnocchi = %{version}-%{release}
+Requires:       python-%{service} = %{version}-%{release}
 Requires:       python-gabbi >= 1.30.0
 
-%description -n python-gnocchi-tests
+%description -n python-%{service}-tests
 This package contains the Gnocchi test files.
 
 %if 0%{?with_doc}
 %package doc
-Summary:          Documentation for OpenStack gnocchi
+Summary:          Documentation for OpenStack %{service}
 
-Requires:         python-gnocchi = %{version}-%{release}
+Requires:         python-%{service} = %{version}-%{release}
 
 %description      doc
-OpenStack gnocchi provides services to measure and
+OpenStack %{service} provides services to measure and
 collect metrics from OpenStack components.
 
-This package contains documentation files for gnocchi.
+This package contains documentation files for %{service}.
 %endif
 
 
 %prep
-%setup -q -n gnocchi-%{upstream_version}
+%setup -q -n %{service}-%{upstream_version}
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
-find gnocchi -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
+find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 
@@ -207,7 +208,7 @@ sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 %build
 
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=gnocchi/gnocchi-config-generator.conf --output-file=gnocchi/gnocchi.conf
+PYTHONPATH=. oslo-config-generator --config-file=%{service}/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
 
 %{__python2} setup.py build
 
@@ -218,7 +219,7 @@ PYTHONPATH=. oslo-config-generator --config-file=gnocchi/gnocchi-config-generato
 # and also doesn't support multi-valued variables.
 while read name eq value; do
   test "$name" && test "$value" || continue
-  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" gnocchi/gnocchi.conf
+  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" %{service}/%{service}.conf
 done < %{SOURCE1}
 
 
@@ -227,26 +228,24 @@ done < %{SOURCE1}
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 # Create fake egg-info for the tempest plugin
-# TODO switch to %{service} everywhere as in openstack-example.spec
-%global service gnocchi
 %py2_entrypoint %{service} %{service}
 
 mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig/
-mkdir -p %{buildroot}/%{_sysconfdir}/gnocchi/
+mkdir -p %{buildroot}/%{_sysconfdir}/%{service}/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
 
-install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/gnocchi/gnocchi-dist.conf
-install -p -D -m 640 gnocchi/gnocchi.conf %{buildroot}%{_sysconfdir}/gnocchi/gnocchi.conf
+install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/%{service}/%{service}-dist.conf
+install -p -D -m 640 %{service}/%{service}.conf %{buildroot}%{_sysconfdir}/%{service}/%{service}.conf
 
 #TODO(prad): build the docs at run time, once the we get rid of postgres setup dependency
 
 # Configuration
-cp -R gnocchi/rest/policy.json %{buildroot}/%{_sysconfdir}/gnocchi
+cp -R %{service}/rest/policy.json %{buildroot}/%{_sysconfdir}/%{service}
 
 # Setup directories
-install -d -m 755 %{buildroot}%{_sharedstatedir}/gnocchi
-install -d -m 755 %{buildroot}%{_sharedstatedir}/gnocchi/tmp
-install -d -m 755 %{buildroot}%{_localstatedir}/log/gnocchi
+install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}
+install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}/tmp
+install -d -m 755 %{buildroot}%{_localstatedir}/log/%{service}
 
 # Install logrotate
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
@@ -257,12 +256,12 @@ install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/%{name}-metricd.service
 install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-statsd.service
 
 # Remove all of the conf files that are included in the buildroot/usr/etc dir since we installed them above
-rm -f %{buildroot}/usr/etc/gnocchi/*
+rm -f %{buildroot}/usr/etc/%{service}/*
 
 %pre common
-getent group gnocchi >/dev/null || groupadd -r gnocchi
-if ! getent passwd gnocchi >/dev/null; then
-  useradd -r -g gnocchi -G gnocchi,nobody -d %{_sharedstatedir}/gnocchi -s /sbin/nologin -c "OpenStack gnocchi Daemons" gnocchi
+getent group %{service} >/dev/null || groupadd -r %{service}
+if ! getent passwd %{service} >/dev/null; then
+  useradd -r -g %{service} -G %{service},nobody -d %{_sharedstatedir}/%{service} -s /sbin/nologin -c "OpenStack %{service} Daemons" %{service}
 fi
 exit 0
 
@@ -284,47 +283,47 @@ exit 0
 %preun -n %{name}-statsd
 %systemd_preun %{name}-statsd.service
 
-%files -n python-gnocchi
-%{python2_sitelib}/gnocchi
-%{python2_sitelib}/gnocchi-*.egg-info
-%exclude %{python2_sitelib}/gnocchi/tests
-%exclude %{python2_sitelib}/gnocchi/tempest
+%files -n python-%{service}
+%{python2_sitelib}/%{service}
+%{python2_sitelib}/%{service}-*.egg-info
+%exclude %{python2_sitelib}/%{service}/tests
+%exclude %{python2_sitelib}/%{service}/tempest
 
-%files -n python-gnocchi-tests
+%files -n python-%{service}-tests
 %license LICENSE
-%{python2_sitelib}/gnocchi/tests
+%{python2_sitelib}/%{service}/tests
 %{python2_sitelib}/%{service}_tests.egg-info
-%{python2_sitelib}/gnocchi/tempest
+%{python2_sitelib}/%{service}/tempest
 
 %files api
 %defattr(-,root,root,-)
-%{_bindir}/gnocchi-api
+%{_bindir}/%{service}-api
 %{_unitdir}/%{name}-api.service
 
 %files common
-%{_bindir}/gnocchi-config-generator
-%{_bindir}/gnocchi-change-sack-size
-%dir %{_sysconfdir}/gnocchi
-%attr(-, root, gnocchi) %{_datadir}/gnocchi/gnocchi-dist.conf
-%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/policy.json
-%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/gnocchi/gnocchi.conf
-%config(noreplace) %attr(-, root, gnocchi) %{_sysconfdir}/logrotate.d/%{name}
-%dir %attr(0750, gnocchi, root)  %{_localstatedir}/log/gnocchi
+%{_bindir}/%{service}-config-generator
+%{_bindir}/%{service}-change-sack-size
+%dir %{_sysconfdir}/%{service}
+%attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.json
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/%{service}.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/logrotate.d/%{name}
+%dir %attr(0750, %{service}, root)  %{_localstatedir}/log/%{service}
 
-%defattr(-, gnocchi, gnocchi, -)
-%dir %{_sharedstatedir}/gnocchi
-%dir %{_sharedstatedir}/gnocchi/tmp
+%defattr(-, %{service}, %{service}, -)
+%dir %{_sharedstatedir}/%{service}
+%dir %{_sharedstatedir}/%{service}/tmp
 
 
 %files indexer-sqlalchemy
-%{_bindir}/gnocchi-upgrade
+%{_bindir}/%{service}-upgrade
 
 %files metricd
-%{_bindir}/gnocchi-metricd
+%{_bindir}/%{service}-metricd
 %{_unitdir}/%{name}-metricd.service
 
 %files statsd
-%{_bindir}/gnocchi-statsd
+%{_bindir}/%{service}-statsd
 %{_unitdir}/%{name}-statsd.service
 
 %if 0%{?with_doc}
