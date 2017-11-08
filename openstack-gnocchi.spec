@@ -91,8 +91,6 @@ This package contains the %{service} python library.
 Summary:        OpenStack %{service} api
 
 Requires:       %{name}-common = %{version}-%{release}
-Requires:       %{name}-indexer-sqlalchemy = %{version}-%{release}
-
 
 %description api
 OpenStack %{service} provides API to store metrics from OpenStack components
@@ -127,24 +125,13 @@ Requires:       python-%{service} = %{version}-%{release}
 
 Obsoletes:        openstack-%{service}-carbonara
 
+# openstack-gnocchi-indexer-sqlalchemy is removed and merged into common
+Provides:         openstack-%{service}-indexer-sqlalchemy = %{epoch}:%{version}-%{release}
+Obsoletes:        openstack-%{service}-indexer-sqlalchemy < 4.1
+
 %description    common
 OpenStack %{service} provides services to measure and
 collect metrics from OpenStack components.
-
-
-%package        indexer-sqlalchemy
-
-Summary:        OpenStack %{service} indexer sqlalchemy driver
-
-Requires:       %{name}-common = %{version}-%{release}
-
-
-%description indexer-sqlalchemy
-OpenStack %{service} provides API to store metrics from OpenStack
-components and index resources.
-
-This package contains the %{service} indexer with sqlalchemy driver.
-
 
 %package        metricd
 
@@ -303,6 +290,7 @@ exit 0
 %files common
 %{_bindir}/%{service}-config-generator
 %{_bindir}/%{service}-change-sack-size
+%{_bindir}/%{service}-upgrade
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.json
@@ -313,10 +301,6 @@ exit 0
 %defattr(-, %{service}, %{service}, -)
 %dir %{_sharedstatedir}/%{service}
 %dir %{_sharedstatedir}/%{service}/tmp
-
-
-%files indexer-sqlalchemy
-%{_bindir}/%{service}-upgrade
 
 %files metricd
 %{_bindir}/%{service}-metricd
