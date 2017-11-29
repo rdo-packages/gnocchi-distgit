@@ -1,5 +1,5 @@
 [Unit]
-Description=OpenStack gnocchi statsd service
+Description=Gnocchi statsd service
 After=syslog.target network.target
 
 [Service]
@@ -10,4 +10,4 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
-
+Alias=openstack-gnocchi-statsd.service

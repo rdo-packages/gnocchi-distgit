@@ -4,7 +4,7 @@
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
-Name:           openstack-%{service}
+Name:           %{service}
 Version:        XXX
 Release:        XXX
 Summary:        Gnocchi is a API to store metrics and index resources
@@ -31,7 +31,7 @@ BuildRequires:  openstack-macros
 HTTP API to store metrics and index resources.
 
 %package -n     python-%{service}
-Summary:        OpenStack %{service} python libraries
+Summary:        %{service} python libraries
 
 Requires:       numpy >= 1.9.0
 Requires:       python-daiquiri
@@ -80,7 +80,7 @@ Requires:       python-cotyledon >= 1.5.0
 Requires:       python-jsonpatch
 
 %description -n   python-%{service}
-OpenStack %{service} provides API to store metrics from OpenStack components
+%{service} provides API to store metrics from components
 and index resources.
 
 This package contains the %{service} python library.
@@ -88,18 +88,20 @@ This package contains the %{service} python library.
 
 %package        api
 
-Summary:        OpenStack %{service} api
+Summary:        %{service} api
 
 Requires:       %{name}-common = %{version}-%{release}
+Obsoletes:      openstack-%{service}-api < 4.1
+Provides:       openstack-%{service}-api = %{version}-%{release}
 
 %description api
-OpenStack %{service} provides API to store metrics from OpenStack components
+%{service} provides API to store metrics from components
 and index resources.
 
 This package contains the %{service} API service.
 
 %package        common
-Summary:        Components common to all OpenStack %{service} services
+Summary:        Components common to all %{service} services
 
 # Config file generation
 BuildRequires:    python-daiquiri
@@ -123,24 +125,31 @@ BuildRequires:    python-gnocchiclient >= 2.1.0
 
 Requires:       python-%{service} = %{version}-%{release}
 
+Obsoletes:        openstack-%{service}-common < 4.1
+
 Obsoletes:        openstack-%{service}-carbonara
 
 # openstack-gnocchi-indexer-sqlalchemy is removed and merged into common
 Provides:         openstack-%{service}-indexer-sqlalchemy = %{epoch}:%{version}-%{release}
 Obsoletes:        openstack-%{service}-indexer-sqlalchemy < 4.1
 
+# Obsolete old openstack-gnocchi packages
+
 %description    common
-OpenStack %{service} provides services to measure and
-collect metrics from OpenStack components.
+%{service} provides services to measure and
+collect metrics from components.
 
 %package        metricd
 
-Summary:        OpenStack %{service} metricd daemon
+Summary:        %{service} metricd daemon
 
 Requires:       %{name}-common = %{version}-%{release}
 
+Obsoletes:      openstack-%{service}-metricd < 4.1
+Provides:       openstack-%{service}-metricd = %{version}-%{release}
+
 %description metricd
-OpenStack %{service} provides API to store metrics from OpenStack
+%{service} provides API to store metrics from OpenStack
 components and index resources.
 
 This package contains the %{service} metricd daemon
@@ -148,12 +157,15 @@ This package contains the %{service} metricd daemon
 
 %package        statsd
 
-Summary:        OpenStack %{service} statsd daemon
+Summary:        %{service} statsd daemon
 
 Requires:       %{name}-common = %{version}-%{release}
 
+Obsoletes:      openstack-%{service}-statsd < 4.1
+Provides:       openstack-%{service}-statsd = %{version}-%{release}
+
 %description statsd
-OpenStack %{service} provides API to store metrics from OpenStack
+%{service} provides API to store metrics from OpenStack
 components and index resources.
 
 This package contains the %{service} statsd daemon
@@ -168,13 +180,13 @@ This package contains the Gnocchi test files.
 
 %if 0%{?with_doc}
 %package doc
-Summary:          Documentation for OpenStack %{service}
+Summary:          Documentation for %{service}
 
 Requires:         python-%{service} = %{version}-%{release}
 
 %description      doc
-OpenStack %{service} provides services to measure and
-collect metrics from OpenStack components.
+%{service} provides services to measure and
+collect metrics from components.
 
 This package contains documentation files for %{service}.
 %endif
@@ -248,7 +260,7 @@ rm -f %{buildroot}/usr/etc/%{service}/*
 %pre common
 getent group %{service} >/dev/null || groupadd -r %{service}
 if ! getent passwd %{service} >/dev/null; then
-  useradd -r -g %{service} -G %{service},nobody -d %{_sharedstatedir}/%{service} -s /sbin/nologin -c "OpenStack %{service} Daemons" %{service}
+  useradd -r -g %{service} -G %{service},nobody -d %{_sharedstatedir}/%{service} -s /sbin/nologin -c "%{service} Daemons" %{service}
 fi
 exit 0
 
