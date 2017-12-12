@@ -22,6 +22,30 @@
       "revId": "bb446267e7a911db73e68b024ba4bcd5061f86ea",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_54306956",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 86
+      },
+      "writtenOn": "2017-12-12T19:00:53Z",
+      "side": 1,
+      "message": "I think I don\u0027t get. Do you mean hardcode the last version ?",
+      "parentUuid": "ba7be1f8_94b901ec",
+      "range": {
+        "startLine": 130,
+        "startChar": 60,
+        "endLine": 130,
+        "endChar": 81
+      },
+      "revId": "bb446267e7a911db73e68b024ba4bcd5061f86ea",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
