@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba7be1f8_94b901ec",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-12-12T15:47:22Z",
+      "side": 1,
+      "message": "Shouldn\u0027t obsoleted version be the actual last *real* version of the package?",
+      "range": {
+        "startLine": 130,
+        "startChar": 60,
+        "endLine": 130,
+        "endChar": 81
+      },
+      "revId": "bb446267e7a911db73e68b024ba4bcd5061f86ea",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
