@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a80dd14_8771e679",
+        "filename": "gnocchi.spec",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 86
+      },
+      "writtenOn": "2017-12-13T12:46:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a80dd14_87c3a689",
+      "revId": "c4d47dd2382d973ab7e0eb7d91012570e44c0e5c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a80dd14_c7bd9e04",
         "filename": "gnocchi.spec",
         "patchSetId": 6
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9a80dd14_a76eea94",
+        "filename": "gnocchi.spec",
+        "patchSetId": 6
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 86
+      },
+      "writtenOn": "2017-12-13T12:46:37Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "9a80dd14_c7bd9e04",
+      "revId": "c4d47dd2382d973ab7e0eb7d91012570e44c0e5c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a80dd14_a7c0aa7d",
         "filename": "gnocchi.spec",
         "patchSetId": 6
@@ -47,6 +83,24 @@
       "writtenOn": "2017-12-13T11:29:49Z",
       "side": 1,
       "message": "misses provides and obsoletes here",
+      "revId": "c4d47dd2382d973ab7e0eb7d91012570e44c0e5c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a80dd14_c76bde83",
+        "filename": "gnocchi.spec",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 86
+      },
+      "writtenOn": "2017-12-13T12:46:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a80dd14_a7c0aa7d",
       "revId": "c4d47dd2382d973ab7e0eb7d91012570e44c0e5c",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
