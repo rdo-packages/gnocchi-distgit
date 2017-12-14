@@ -22,6 +22,30 @@
       "revId": "af210a84ac5106258559e86d0924279c8b4b6bb7",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a75e904_a9c0797d",
+        "filename": "openstack-gnocchi.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 80
+      },
+      "writtenOn": "2017-12-14T07:25:17Z",
+      "side": 1,
+      "message": "IMO, we can ignore trunk. Trunk is something to test with. If you\u0027re using that, you know it may eat your babies. trunk is not recommended for real setups, no?",
+      "parentUuid": "9a80dd14_a7f50acd",
+      "range": {
+        "startLine": 130,
+        "startChar": 60,
+        "endLine": 130,
+        "endChar": 63
+      },
+      "revId": "af210a84ac5106258559e86d0924279c8b4b6bb7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
