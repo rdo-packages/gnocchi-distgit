@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a6ced46_09ffcd02",
+        "filename": "gnocchi-api.service",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 303
+      },
+      "writtenOn": "2017-12-21T22:37:41Z",
+      "side": 1,
+      "message": "Just a heads up, this appears not to be backwards compatible with the puppet-gnocchi stuff. It\u0027s failing on weirdo\n\nhttps://centos.logs.rdoproject.org/weirdo-generic-puppet-openstack-scenario001/3856/weirdo-project/puppet.txt.gz#_2017-12-21_21_25_14",
+      "revId": "bb771bb16e4a50678792e77f8b9c95455f3a1b3e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
