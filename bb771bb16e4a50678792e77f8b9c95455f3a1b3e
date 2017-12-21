@@ -16,6 +16,23 @@
       "revId": "bb771bb16e4a50678792e77f8b9c95455f3a1b3e",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_4909c52b",
+        "filename": "gnocchi-metricd.service",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 303
+      },
+      "writtenOn": "2017-12-21T22:38:55Z",
+      "side": 1,
+      "message": "actually it\u0027s metricd and statsd that it\u0027s complaining on",
+      "revId": "bb771bb16e4a50678792e77f8b9c95455f3a1b3e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
