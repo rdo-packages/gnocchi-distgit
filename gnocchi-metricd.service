@@ -1,13 +1,12 @@
 [Unit]
-Description=OpenStack ceilometer API service
+Description=Gnocchi metricd service
 After=syslog.target network.target
 
 [Service]
 Type=simple
 User=gnocchi
-ExecStart=/usr/bin/gnocchi-api -- --log-file /var/log/gnocchi/api.log
+ExecStart=/usr/bin/gnocchi-metricd --log-file /var/log/gnocchi/metricd.log
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
-
