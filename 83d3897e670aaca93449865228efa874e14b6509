@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a6ced46_f7f8884b",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 84
+      },
+      "writtenOn": "2018-01-02T14:13:07Z",
+      "side": 1,
+      "message": "I think it would be safer to make this 4.1.3.\n\nThere is potential to get a 4.1.2 package with a newer date string, since that is just the date it was built by delorean. It is a bit of a corner case, but I dont think using 4.1.3 would hurt and it is more fool proof.",
+      "range": {
+        "startLine": 94,
+        "startChar": 43,
+        "endLine": 94,
+        "endChar": 65
+      },
+      "revId": "83d3897e670aaca93449865228efa874e14b6509",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_d7fb8c45",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 84
+      },
+      "writtenOn": "2018-01-02T14:13:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 129,
+        "startChar": 47,
+        "endLine": 129,
+        "endChar": 70
+      },
+      "revId": "83d3897e670aaca93449865228efa874e14b6509",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_b7fe1037",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 84
+      },
+      "writtenOn": "2018-01-02T14:13:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 135,
+        "startChar": 60,
+        "endLine": 135,
+        "endChar": 82
+      },
+      "revId": "83d3897e670aaca93449865228efa874e14b6509",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_9701143c",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 84
+      },
+      "writtenOn": "2018-01-02T14:13:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 149,
+        "startChar": 47,
+        "endLine": 149,
+        "endChar": 69
+      },
+      "revId": "83d3897e670aaca93449865228efa874e14b6509",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_77ed788b",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 84
+      },
+      "writtenOn": "2018-01-02T14:13:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 165,
+        "startChar": 46,
+        "endLine": 165,
+        "endChar": 68
+      },
+      "revId": "83d3897e670aaca93449865228efa874e14b6509",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_57e87c7c",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 84
+      },
+      "writtenOn": "2018-01-02T14:13:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 189,
+        "startChar": 45,
+        "endLine": 189,
+        "endChar": 67
+      },
+      "revId": "83d3897e670aaca93449865228efa874e14b6509",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
