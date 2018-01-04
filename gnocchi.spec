@@ -124,6 +124,7 @@ BuildRequires:    python-werkzeug
 BuildRequires:    python-gnocchiclient >= 2.1.0
 
 Requires:       python-%{service} = %{version}-%{release}
+Requires:         openstack-selinux
 
 Provides:         openstack-%{service}-common = %{version}-%{release}
 Obsoletes:        openstack-%{service}-common < 4.1.3
