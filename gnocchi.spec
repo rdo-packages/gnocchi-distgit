@@ -68,7 +68,7 @@ Requires:       python-tooz >= 0.30
 Requires:       python-trollius
 Requires:       python-tenacity >= 4.0.0
 Requires:       python-ujson
-Requires:       python-voluptuous
+Requires:       python-voluptuous >= 0.8.10
 Requires:       python-werkzeug
 Requires:       pytz
 Requires:       PyYAML
