@@ -230,9 +230,6 @@ done < %{SOURCE1}
 
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
-# Create fake egg-info for the tempest plugin
-%py2_entrypoint %{service} %{service}
-
 mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig/
 mkdir -p %{buildroot}/%{_sysconfdir}/%{service}/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
@@ -295,13 +292,10 @@ exit 0
 %{python2_sitelib}/%{service}
 %{python2_sitelib}/%{service}-*.egg-info
 %exclude %{python2_sitelib}/%{service}/tests
-%exclude %{python2_sitelib}/%{service}/tempest
 
 %files -n python-%{service}-tests
 %license LICENSE
 %{python2_sitelib}/%{service}/tests
-%{python2_sitelib}/%{service}_tests.egg-info
-%{python2_sitelib}/%{service}/tempest
 
 %files api
 %defattr(-,root,root,-)
@@ -338,6 +332,5 @@ exit 0
 %files doc
 %doc doc/source/
 %endif
-
 
 %changelog
