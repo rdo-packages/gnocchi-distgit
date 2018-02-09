@@ -200,16 +200,13 @@ This package contains documentation files for %{service}.
 %setup -q -n %{service}-%{upstream_version}
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
-
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
-
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 
 %py_req_cleanup
 
 
 %build
-
 # Generate config file
 PYTHONPATH=. oslo-config-generator --config-file=%{service}/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
 
@@ -224,7 +221,6 @@ while read name eq value; do
   test "$name" && test "$value" || continue
   sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" %{service}/%{service}.conf
 done < %{SOURCE1}
-
 
 %install
 
