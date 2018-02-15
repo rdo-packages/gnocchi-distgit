@@ -353,4 +353,3 @@ exit 0
 
 * Thu Feb 09 2017 Alfredo Moralejo <amoralej@redhat.com> 3.1.0-1
 - Update to 3.1.0
-
