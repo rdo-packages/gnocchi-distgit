@@ -336,4 +336,3 @@ exit 0
 %changelog
 * Thu Aug 24 2017 Alfredo Moralejo <amoralej@redhat.com> 4.0.2-1
 - Update to 4.0.2
-
