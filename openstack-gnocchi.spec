@@ -371,4 +371,3 @@ exit 0
 
 * Fri Sep 16 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.2.0-1
 - Update to 2.2.0
-
