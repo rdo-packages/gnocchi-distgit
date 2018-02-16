@@ -19,12 +19,12 @@ Source11:       %{name}-metricd.service
 Source12:       %{name}-statsd.service
 BuildArch:      noarch
 
-BuildRequires:  python-setuptools
-BuildRequires:  python-sphinx
-BuildRequires:  python-pbr
+BuildRequires:  python2-setuptools
+BuildRequires:  python2-sphinx
+BuildRequires:  python2-pbr
 BuildRequires:  python2-devel
 BuildRequires:  systemd
-BuildRequires:  python-tenacity >= 4.0.0
+BuildRequires:  python-tenacity >= 4.6.0
 BuildRequires:  openstack-macros
 
 %description
@@ -34,50 +34,51 @@ HTTP API to store metrics and index resources.
 Summary:        %{service} python libraries
 
 Requires:       numpy >= 1.9.0
-Requires:       python-daiquiri
+Requires:       python2-daiquiri
 Requires:       python-futures
-Requires:       python-iso8601
-Requires:       python-jinja2
-Requires:       python-keystonemiddleware >= 4.0.0
-Requires:       python-lz4 >= 0.9.0
+Requires:       python2-iso8601
+Requires:       python2-jinja2
+Requires:       python2-keystonemiddleware >= 4.0.0
+Requires:       python2-lz4 >= 0.9.0
 Requires:       python-monotonic
 Requires:       python-msgpack
-Requires:       python-oslo-config >= 2:3.22.0
-Requires:       python-oslo-db >= 4.8.0
-Requires:       python-oslo-log >= 2.3.0
-Requires:       python-oslo-middleware >= 3.22.0
-Requires:       python-oslo-policy >= 0.3.0
-Requires:       python-oslo-sphinx >= 2.2.0
-Requires:       python-oslo-serialization >= 1.4.0
-Requires:       python-oslo-utils >= 3.18.0
-Requires:       python-pandas >= 0.18.0
+Requires:       python2-oslo-config >= 2:3.22.0
+Requires:       python2-oslo-db >= 4.8.0
+Requires:       python2-oslo-log >= 2.3.0
+Requires:       python2-oslo-middleware >= 3.22.0
+Requires:       python2-oslo-policy >= 0.3.0
+Requires:       python2-oslo-sphinx >= 2.2.0
+Requires:       python2-oslo-serialization >= 1.4.0
+Requires:       python2-pandas >= 0.18.0
 Requires:       python-paste
 Requires:       python-paste-deploy
-Requires:       python-pbr
-Requires:       python-pecan >= 0.9
+Requires:       python2-pbr
+Requires:       python2-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
-Requires:       python-requests
-Requires:       python-scipy
-Requires:       python-swiftclient >= 3.1.0
-Requires:       python-six
-Requires:       python-sqlalchemy
+Requires:       python2-requests
+Requires:       python2-scipy
+Requires:       python2-swiftclient >= 3.1.0
+Requires:       python2-six
+Requires:       python2-sqlalchemy
 Requires:       python-sqlalchemy-utils
-Requires:       python-stevedore
+Requires:       python2-stevedore
 Requires:       python-sysv_ipc
-Requires:       python-tooz >= 0.30
+Requires:       python2-tooz >= 1.38
 Requires:       python-trollius
-Requires:       python-tenacity >= 4.0.0
-Requires:       python-ujson
-Requires:       python-voluptuous >= 0.8.10
+Requires:       python-tenacity >= 4.6.0
+Requires:       python2-ujson
+Requires:       python2-voluptuous >= 0.8.10
 Requires:       python-werkzeug
-Requires:       pytz
+Requires:       python2-pytz
 Requires:       PyYAML
 Requires:       python-webob >= 1.4.1
-Requires:       python-alembic
+Requires:       python2-alembic
 Requires:       python-psycopg2
-Requires:       python-prettytable
-Requires:       python-cotyledon >= 1.5.0
-Requires:       python-jsonpatch
+Requires:       python2-prettytable
+Requires:       python2-cotyledon >= 1.5.0
+Requires:       python2-jsonpatch
+Requires:       python-cachetools
+Requires:       python2-pyparsing
 
 %description -n   python-%{service}
 %{service} provides API to store metrics from components
@@ -104,24 +105,24 @@ This package contains the %{service} API service.
 Summary:        Components common to all %{service} services
 
 # Config file generation
-BuildRequires:    python-daiquiri
-BuildRequires:    python-jsonpatch
-BuildRequires:    python-oslo-config >= 2:3.22.0
-BuildRequires:    python-oslo-concurrency
-BuildRequires:    python-oslo-db
-BuildRequires:    python-oslo-log
-BuildRequires:    python-oslo-messaging
-BuildRequires:    python-oslo-policy
-BuildRequires:    python-oslo-reports
-BuildRequires:    python-oslo-service
-BuildRequires:    python-lz4 >= 0.9.0
-BuildRequires:    python-pandas >= 0.18.0
-BuildRequires:    python-pecan >= 0.9
+BuildRequires:    python2-daiquiri
+BuildRequires:    python2-jsonpatch
+BuildRequires:    python2-oslo-config >= 2:3.22.0
+BuildRequires:    python2-oslo-concurrency
+BuildRequires:    python2-oslo-db
+BuildRequires:    python2-oslo-log
+BuildRequires:    python2-oslo-messaging
+BuildRequires:    python2-oslo-policy
+BuildRequires:    python2-oslo-reports
+BuildRequires:    python2-oslo-service
+BuildRequires:    python2-lz4 >= 0.9.0
+BuildRequires:    python2-pandas >= 0.18.0
+BuildRequires:    python2-pecan >= 0.9
 BuildRequires:    python-pytimeparse >= 1.1.5
-BuildRequires:    python-tooz
-BuildRequires:    python-ujson
+BuildRequires:    python2-tooz
+BuildRequires:    python2-ujson
 BuildRequires:    python-werkzeug
-BuildRequires:    python-gnocchiclient >= 2.1.0
+BuildRequires:    python2-gnocchiclient >= 2.1.0
 
 Requires:       python-%{service} = %{version}-%{release}
 
@@ -174,7 +175,7 @@ This package contains the %{service} statsd daemon
 %package -n python-%{service}-tests
 Summary:        Gnocchi tests
 Requires:       python-%{service} = %{version}-%{release}
-Requires:       python-gabbi >= 1.30.0
+Requires:       python2-gabbi >= 1.30.0
 
 %description -n python-%{service}-tests
 This package contains the Gnocchi test files.
