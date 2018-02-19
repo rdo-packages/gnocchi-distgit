@@ -22,6 +22,30 @@
       "revId": "78fb1a9fb65aaa2268329291dd91723b6d1fbf3d",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aaa499b_538d3530",
+        "filename": "gnocchi.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 74
+      },
+      "writtenOn": "2018-02-19T14:45:01Z",
+      "side": 1,
+      "message": "I updated fedora rawhide to 4.8. If we want to pull that in and bump this .",
+      "parentUuid": "7aaa499b_a0f660d5",
+      "range": {
+        "startLine": 68,
+        "startChar": 35,
+        "endLine": 68,
+        "endChar": 40
+      },
+      "revId": "78fb1a9fb65aaa2268329291dd91723b6d1fbf3d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
