@@ -1,0 +1,8 @@
+Code-Review+2: Pradeep Kilambi <pkilambi@redhat.com>
+Workflow+1: Pradeep Kilambi <pkilambi@redhat.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Wed, 25 Apr 2018 15:43:23 +0000
+Reviewed-on: https://review.rdoproject.org/r/13549
+Project: openstack/gnocchi-distgit
+Branch: refs/heads/ocata-rdo
