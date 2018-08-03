@@ -19,9 +19,9 @@ Source11:       %{name}-metricd.service
 Source12:       %{name}-statsd.service
 BuildArch:      noarch
 
-BuildRequires:  python2-setuptools
+BuildRequires:  python2-setuptools >= 30.3
+BuildRequires:  python2-setuptools_scm
 BuildRequires:  python2-sphinx
-BuildRequires:  python2-pbr
 BuildRequires:  python2-devel
 BuildRequires:  systemd
 BuildRequires:  python-tenacity >= 4.6.0
@@ -43,20 +43,14 @@ Requires:       python2-lz4 >= 0.9.0
 Requires:       python-monotonic
 Requires:       python-msgpack
 Requires:       python2-oslo-config >= 2:3.22.0
-Requires:       python2-oslo-db >= 4.8.0
-Requires:       python2-oslo-log >= 2.3.0
+Requires:       python2-oslo-db >= 4.29.0
 Requires:       python2-oslo-middleware >= 3.22.0
 Requires:       python2-oslo-policy >= 0.3.0
-Requires:       python2-oslo-sphinx >= 2.2.0
-Requires:       python2-oslo-serialization >= 1.4.0
-Requires:       python2-pandas >= 0.18.0
 Requires:       python-paste
 Requires:       python-paste-deploy
-Requires:       python2-pbr
 Requires:       python2-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
 Requires:       python2-requests
-Requires:       python2-scipy
 Requires:       python2-swiftclient >= 3.1.0
 Requires:       python2-six
 Requires:       python2-sqlalchemy
