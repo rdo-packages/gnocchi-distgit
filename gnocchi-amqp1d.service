@@ -1,0 +1,12 @@
+[Unit]
+Description=Gnocchi AMQP 1.0 service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=gnocchi
+ExecStart=/usr/bin/gnocchi-amqp1d --log-file /var/log/gnocchi/amqp1d.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
