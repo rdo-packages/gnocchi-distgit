@@ -17,11 +17,12 @@ Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
 Source11:       %{name}-metricd.service
 Source12:       %{name}-statsd.service
+Source12:       %{name}-amqp1d.service
 BuildArch:      noarch
 
-BuildRequires:  python2-setuptools
+BuildRequires:  python2-setuptools >= 30.3
+BuildRequires:  python2-setuptools_scm
 BuildRequires:  python2-sphinx
-BuildRequires:  python2-pbr
 BuildRequires:  python2-devel
 BuildRequires:  systemd
 BuildRequires:  python-tenacity >= 4.6.0
@@ -43,20 +44,14 @@ Requires:       python2-lz4 >= 0.9.0
 Requires:       python-monotonic
 Requires:       python-msgpack
 Requires:       python2-oslo-config >= 2:3.22.0
-Requires:       python2-oslo-db >= 4.8.0
-Requires:       python2-oslo-log >= 2.3.0
+Requires:       python2-oslo-db >= 4.29.0
 Requires:       python2-oslo-middleware >= 3.22.0
 Requires:       python2-oslo-policy >= 0.3.0
-Requires:       python2-oslo-sphinx >= 2.2.0
-Requires:       python2-oslo-serialization >= 1.4.0
-Requires:       python2-pandas >= 0.18.0
 Requires:       python-paste
 Requires:       python-paste-deploy
-Requires:       python2-pbr
 Requires:       python2-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
 Requires:       python2-requests
-Requires:       python2-scipy
 Requires:       python2-swiftclient >= 3.1.0
 Requires:       python2-six
 Requires:       python2-sqlalchemy
@@ -157,6 +152,22 @@ components and index resources.
 This package contains the %{service} metricd daemon
 
 
+%package        amqp1d
+
+Summary:        %{service} AMQP 1.0 daemon
+
+Requires:       %{name}-common = %{version}-%{release}
+
+Obsoletes:      openstack-%{service}-amqp1d < 4.1.3
+Provides:       openstack-%{service}-amqp1d = %{version}-%{release}
+
+%description amqp1d
+%{service} provides API to store metrics from OpenStack
+components and index resources.
+
+This package contains the %{service} AMQP 1.0 daemon
+
+
 %package        statsd
 
 Summary:        %{service} statsd daemon
@@ -202,7 +213,6 @@ This package contains documentation files for %{service}.
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
-sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 
 %py_req_cleanup
 
@@ -251,6 +261,7 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/%{name}-api.service
 install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/%{name}-metricd.service
 install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-statsd.service
+install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-amqp1d.service
 
 # Backward compatibility unit services
 ln -sf %{_unitdir}/%{name}-api.service %{buildroot}%{_unitdir}/openstack-%{name}-api.service
@@ -285,6 +296,12 @@ exit 0
 %preun -n %{name}-statsd
 %systemd_preun %{name}-statsd.service
 
+%post -n %{name}-amqp1d
+%systemd_post %{name}-amqp1d.service
+
+%preun -n %{name}-amqp1d
+%systemd_preun %{name}-amqp1d.service
+
 %files -n python-%{service}
 %{python2_sitelib}/%{service}
 %{python2_sitelib}/%{service}-*.egg-info
@@ -304,6 +321,7 @@ exit 0
 %{_bindir}/%{service}-config-generator
 %{_bindir}/%{service}-change-sack-size
 %{_bindir}/%{service}-upgrade
+%{_bindir}/%{service}-injector
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.json
@@ -324,6 +342,10 @@ exit 0
 %{_bindir}/%{service}-statsd
 %{_unitdir}/%{name}-statsd.service
 %{_unitdir}/openstack-%{name}-statsd.service
+
+%files amqp1d
+%{_bindir}/%{service}-amqp1d
+%{_unitdir}/%{name}-amqp1d.service
 
 %if 0%{?with_doc}
 %files doc
