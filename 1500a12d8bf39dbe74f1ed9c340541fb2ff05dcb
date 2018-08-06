@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_6fc4cc3f",
+        "filename": "gnocchi.spec",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-08-06T13:46:43Z",
+      "side": 1,
+      "message": "Need to remove this line",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 77
+      },
+      "revId": "1500a12d8bf39dbe74f1ed9c340541fb2ff05dcb",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
