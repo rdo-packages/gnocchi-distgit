@@ -17,7 +17,6 @@ Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
 Source11:       %{name}-metricd.service
 Source12:       %{name}-statsd.service
-Source13:       %{name}-amqpd.service
 BuildArch:      noarch
 
 BuildRequires:  python2-setuptools >= 30.3
@@ -152,20 +151,6 @@ components and index resources.
 This package contains the %{service} metricd daemon
 
 
-%package        amqpd
-
-Summary:        %{service} AMQP 1.0 daemon
-
-Requires:       %{name}-common = %{version}-%{release}
-Requires:       python-qpid-proton >= 0.17.0
-
-%description amqpd
-%{service} provides API to store metrics from OpenStack
-components and index resources.
-
-This package contains the %{service} AMQP 1.0 daemon
-
-
 %package        statsd
 
 Summary:        %{service} statsd daemon
@@ -259,7 +244,6 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/%{name}-api.service
 install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/%{name}-metricd.service
 install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-statsd.service
-install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-amqpd.service
 
 # Backward compatibility unit services
 ln -sf %{_unitdir}/%{name}-api.service %{buildroot}%{_unitdir}/openstack-%{name}-api.service
@@ -293,12 +277,6 @@ exit 0
 
 %preun -n %{name}-statsd
 %systemd_preun %{name}-statsd.service
-
-%post -n %{name}-amqpd
-%systemd_post %{name}-amqpd.service
-
-%preun -n %{name}-amqpd
-%systemd_preun %{name}-amqpd.service
 
 %files -n python-%{service}
 %{python2_sitelib}/%{service}
@@ -340,10 +318,6 @@ exit 0
 %{_bindir}/%{service}-statsd
 %{_unitdir}/%{name}-statsd.service
 %{_unitdir}/openstack-%{name}-statsd.service
-
-%files amqpd
-%{_bindir}/%{service}-amqpd
-%{_unitdir}/%{name}-amqpd.service
 
 %if 0%{?with_doc}
 %files doc
