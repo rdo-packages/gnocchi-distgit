@@ -72,7 +72,7 @@ Requires:       python2-prettytable
 Requires:       python2-cotyledon >= 1.5.0
 Requires:       python2-jsonpatch
 Requires:       python-cachetools
-Requires:       python2-pyparsing
+Requires:       python2-pyparsing >= 2.2.0
 
 %description -n   python-%{service}
 %{service} provides API to store metrics from components
