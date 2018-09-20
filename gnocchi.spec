@@ -5,7 +5,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           %{service}
-Version:        4.3.0
+Version:        4.3.2
 Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
@@ -57,7 +57,7 @@ Requires:       python2-sqlalchemy
 Requires:       python-sqlalchemy-utils
 Requires:       python2-stevedore
 Requires:       python-sysv_ipc
-Requires:       python2-tooz >= 1.38
+Requires:       python2-tooz >= 1.62
 Requires:       python-trollius
 Requires:       python-tenacity >= 4.6.0
 Requires:       python2-ujson
@@ -72,7 +72,7 @@ Requires:       python2-prettytable
 Requires:       python2-cotyledon >= 1.5.0
 Requires:       python2-jsonpatch
 Requires:       python-cachetools
-Requires:       python2-pyparsing
+Requires:       python2-pyparsing >= 2.2.0
 
 %description -n   python-%{service}
 %{service} provides API to store metrics from components
@@ -113,7 +113,7 @@ BuildRequires:    python2-lz4 >= 0.9.0
 BuildRequires:    python2-pandas >= 0.18.0
 BuildRequires:    python2-pecan >= 0.9
 BuildRequires:    python-pytimeparse >= 1.1.5
-BuildRequires:    python2-tooz
+BuildRequires:    python2-tooz >= 1.62
 BuildRequires:    python2-ujson
 BuildRequires:    python-werkzeug
 BuildRequires:    python2-gnocchiclient >= 2.1.0
@@ -325,6 +325,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Sep 20 2018 RDO <dev@lists.rdoproject.org> 4.3.2-1
+- Release 4.3.2 and fix upgrade path.
+
 * Mon Aug 20 2018 RDO <dev@lists.rdoproject.org> 4.3.0-1
 - Update to 4.3.0
 
