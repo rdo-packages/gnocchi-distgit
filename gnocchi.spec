@@ -63,7 +63,7 @@ Requires:       python%{pyver}-swiftclient >= 3.1.0
 Requires:       python%{pyver}-six
 Requires:       python%{pyver}-sqlalchemy
 Requires:       python%{pyver}-stevedore
-Requires:       python%{pyver}-tooz >= 1.38
+Requires:       python%{pyver}-tooz >= 1.62
 Requires:       python%{pyver}-trollius
 Requires:       python%{pyver}-tenacity >= 4.6.0
 Requires:       python%{pyver}-ujson
@@ -76,7 +76,7 @@ Requires:       python%{pyver}-prettytable
 Requires:       python%{pyver}-cotyledon >= 1.5.0
 Requires:       python%{pyver}-jsonpatch
 Requires:       python%{pyver}-cachetools
-Requires:       python%{pyver}-pyparsing
+Requires:       python%{pyver}-pyparsing >= 2.2.0
 
 # Handle python2 exception
 %if %{pyver} == 2
@@ -86,17 +86,20 @@ Requires:       python-paste-deploy
 Requires:       python-pytimeparse >= 1.1.5
 Requires:       python-sqlalchemy-utils
 Requires:       python-sysv_ipc
+Requires:       python2-tooz >= 1.62
+Requires:       python-trollius
+Requires:       python-tenacity >= 4.6.0
+Requires:       python2-ujson
+Requires:       python2-voluptuous >= 0.8.10
+Requires:       python-werkzeug
+Requires:       python2-pytz
 Requires:       PyYAML
 Requires:       python-psycopg2
-%else
-Requires:       python%{pyver}-paste
-Requires:       python%{pyver}-paste-deploy
-Requires:       python%{pyver}-pytimeparse >= 1.1.5
-Requires:       python%{pyver}-sqlalchemy-utils
-Requires:       python%{pyver}-sysv_ipc
-Requires:       python%{pyver}-PyYAML
-Requires:       python%{pyver}-psycopg2
-%endif
+Requires:       python2-prettytable
+Requires:       python2-cotyledon >= 1.5.0
+Requires:       python2-jsonpatch
+Requires:       python-cachetools
+Requires:       python2-pyparsing >= 2.2.0
 
 %description -n   python%{pyver}-%{service}
 %{service} provides API to store metrics from components
@@ -136,7 +139,7 @@ BuildRequires:    python%{pyver}-oslo-service
 BuildRequires:    python%{pyver}-lz4 >= 0.9.0
 BuildRequires:    python%{pyver}-pandas >= 0.18.0
 BuildRequires:    python%{pyver}-pecan >= 0.9
-BuildRequires:    python%{pyver}-tooz
+BuildRequires:    python%{pyver}-tooz >= 1.62
 BuildRequires:    python%{pyver}-ujson
 BuildRequires:    python%{pyver}-werkzeug
 BuildRequires:    python%{pyver}-gnocchiclient >= 2.1.0
@@ -144,9 +147,10 @@ BuildRequires:    python%{pyver}-gnocchiclient >= 2.1.0
 # Handle python2 exception
 %if %{pyver} == 2
 BuildRequires:    python-pytimeparse >= 1.1.5
-%else
-BuildRequires:    python%{pyver}-pytimeparse >= 1.1.5
-%endif
+BuildRequires:    python2-tooz >= 1.62
+BuildRequires:    python2-ujson
+BuildRequires:    python-werkzeug
+BuildRequires:    python2-gnocchiclient >= 2.1.0
 
 Requires:       python%{pyver}-%{service} = %{version}-%{release}
 
