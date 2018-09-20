@@ -6,7 +6,7 @@
 
 Name:           %{service}
 Version:        4.3.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
@@ -72,7 +72,7 @@ Requires:       python2-prettytable
 Requires:       python2-cotyledon >= 1.5.0
 Requires:       python2-jsonpatch
 Requires:       python-cachetools
-Requires:       python2-pyparsing
+Requires:       python2-pyparsing >= 2.2.0
 
 %description -n   python-%{service}
 %{service} provides API to store metrics from components
@@ -325,6 +325,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Sep 20 2018 RDO <dev@lists.rdoproject.org> 4.3.0-2
+- Update pyparsing requires to >= 2.2.0
+
 * Mon Aug 20 2018 RDO <dev@lists.rdoproject.org> 4.3.0-1
 - Update to 4.3.0
 
