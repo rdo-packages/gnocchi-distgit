@@ -63,7 +63,7 @@ Requires:       python%{pyver}-swiftclient >= 3.1.0
 Requires:       python%{pyver}-six
 Requires:       python%{pyver}-sqlalchemy
 Requires:       python%{pyver}-stevedore
-Requires:       python%{pyver}-tooz >= 1.38
+Requires:       python%{pyver}-tooz >= 1.62
 Requires:       python%{pyver}-trollius
 Requires:       python%{pyver}-tenacity >= 4.6.0
 Requires:       python%{pyver}-ujson
@@ -76,7 +76,7 @@ Requires:       python%{pyver}-prettytable
 Requires:       python%{pyver}-cotyledon >= 1.5.0
 Requires:       python%{pyver}-jsonpatch
 Requires:       python%{pyver}-cachetools
-Requires:       python%{pyver}-pyparsing
+Requires:       python%{pyver}-pyparsing >= 2.2.0
 
 # Handle python2 exception
 %if %{pyver} == 2
@@ -136,7 +136,7 @@ BuildRequires:    python%{pyver}-oslo-service
 BuildRequires:    python%{pyver}-lz4 >= 0.9.0
 BuildRequires:    python%{pyver}-pandas >= 0.18.0
 BuildRequires:    python%{pyver}-pecan >= 0.9
-BuildRequires:    python%{pyver}-tooz
+BuildRequires:    python%{pyver}-tooz >= 1.62
 BuildRequires:    python%{pyver}-ujson
 BuildRequires:    python%{pyver}-werkzeug
 BuildRequires:    python%{pyver}-gnocchiclient >= 2.1.0
