@@ -1,3 +1,14 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %global pypi_name gnocchi
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service gnocchi
@@ -19,62 +30,79 @@ Source11:       %{name}-metricd.service
 Source12:       %{name}-statsd.service
 BuildArch:      noarch
 
-BuildRequires:  python2-setuptools >= 30.3
-BuildRequires:  python2-setuptools_scm
-BuildRequires:  python2-sphinx
-BuildRequires:  python2-devel
+BuildRequires:  python%{pyver}-setuptools >= 30.3
+BuildRequires:  python%{pyver}-setuptools_scm
+BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-devel
 BuildRequires:  systemd
-BuildRequires:  python-tenacity >= 4.6.0
+BuildRequires:  python%{pyver}-tenacity >= 4.6.0
 BuildRequires:  openstack-macros
 
 %description
 HTTP API to store metrics and index resources.
 
-%package -n     python-%{service}
+%package -n     python%{pyver}-%{service}
 Summary:        %{service} python libraries
+%{?python_provide:%python_provide python%{pyver}-%{service}}
 
 Requires:       numpy >= 1.9.0
-Requires:       python2-daiquiri
+Requires:       python%{pyver}-daiquiri
+Requires:       python%{pyver}-iso8601
+Requires:       python%{pyver}-jinja2
+Requires:       python%{pyver}-keystonemiddleware >= 4.0.0
+Requires:       python%{pyver}-lz4 >= 0.9.0
+Requires:       python%{pyver}-oslo-config >= 2:3.22.0
+Requires:       python%{pyver}-oslo-db >= 4.29.0
+Requires:       python%{pyver}-oslo-middleware >= 3.22.0
+Requires:       python%{pyver}-oslo-policy >= 0.3.0
+Requires:       python%{pyver}-pecan >= 0.9
+Requires:       python%{pyver}-requests
+Requires:       python%{pyver}-swiftclient >= 3.1.0
+Requires:       python%{pyver}-six
+Requires:       python%{pyver}-sqlalchemy
+Requires:       python%{pyver}-stevedore
+Requires:       python%{pyver}-tooz >= 1.38
+Requires:       python%{pyver}-tenacity >= 4.6.0
+Requires:       python%{pyver}-ujson
+Requires:       python%{pyver}-voluptuous >= 0.8.10
+Requires:       python%{pyver}-werkzeug
+Requires:       python%{pyver}-pytz
+Requires:       python%{pyver}-webob >= 1.4.1
+Requires:       python%{pyver}-alembic
+Requires:       python%{pyver}-prettytable
+Requires:       python%{pyver}-cotyledon >= 1.5.0
+Requires:       python%{pyver}-jsonpatch
+Requires:       python%{pyver}-pyparsing
+
+# Handle python2 exception
+%if %{pyver} == 2
 Requires:       python-futures
-Requires:       python2-iso8601
-Requires:       python2-jinja2
-Requires:       python2-keystonemiddleware >= 4.0.0
-Requires:       python2-lz4 >= 0.9.0
 Requires:       python-monotonic
 Requires:       python-msgpack
-Requires:       python2-oslo-config >= 2:3.22.0
-Requires:       python2-oslo-db >= 4.29.0
-Requires:       python2-oslo-middleware >= 3.22.0
-Requires:       python2-oslo-policy >= 0.3.0
 Requires:       python-paste
 Requires:       python-paste-deploy
-Requires:       python2-pecan >= 0.9
 Requires:       python-pytimeparse >= 1.1.5
-Requires:       python2-requests
-Requires:       python2-swiftclient >= 3.1.0
-Requires:       python2-six
-Requires:       python2-sqlalchemy
 Requires:       python-sqlalchemy-utils
-Requires:       python2-stevedore
 Requires:       python-sysv_ipc
-Requires:       python2-tooz >= 1.38
 Requires:       python-trollius
-Requires:       python-tenacity >= 4.6.0
-Requires:       python2-ujson
-Requires:       python2-voluptuous >= 0.8.10
-Requires:       python-werkzeug
-Requires:       python2-pytz
 Requires:       PyYAML
-Requires:       python-webob >= 1.4.1
-Requires:       python2-alembic
 Requires:       python-psycopg2
-Requires:       python2-prettytable
-Requires:       python2-cotyledon >= 1.5.0
-Requires:       python2-jsonpatch
 Requires:       python-cachetools
-Requires:       python2-pyparsing
+%else
+Requires:       python%{pyver}-monotonic
+Requires:       python%{pyver}-msgpack
+Requires:       python%{pyver}-paste
+Requires:       python%{pyver}-paste-deploy
+Requires:       python%{pyver}-pytimeparse >= 1.1.5
+Requires:       python%{pyver}-sqlalchemy-utils
+Requires:       python%{pyver}-sysv_ipc
+Requires:       python%{pyver}-trollius
+Requires:       python%{pyver}-pyyaml
+Requires:       python%{pyver}-psycopg2
+Requires:       python%{pyver}-cachetools
+%endif
 
-%description -n   python-%{service}
+%description -n   python%{pyver}-%{service}
 %{service} provides API to store metrics from components
 and index resources.
 
@@ -99,26 +127,32 @@ This package contains the %{service} API service.
 Summary:        Components common to all %{service} services
 
 # Config file generation
-BuildRequires:    python2-daiquiri
-BuildRequires:    python2-jsonpatch
-BuildRequires:    python2-oslo-config >= 2:3.22.0
-BuildRequires:    python2-oslo-concurrency
-BuildRequires:    python2-oslo-db
-BuildRequires:    python2-oslo-log
-BuildRequires:    python2-oslo-messaging
-BuildRequires:    python2-oslo-policy
-BuildRequires:    python2-oslo-reports
-BuildRequires:    python2-oslo-service
-BuildRequires:    python2-lz4 >= 0.9.0
-BuildRequires:    python2-pandas >= 0.18.0
-BuildRequires:    python2-pecan >= 0.9
-BuildRequires:    python-pytimeparse >= 1.1.5
-BuildRequires:    python2-tooz
-BuildRequires:    python2-ujson
-BuildRequires:    python-werkzeug
-BuildRequires:    python2-gnocchiclient >= 2.1.0
+BuildRequires:    python%{pyver}-daiquiri
+BuildRequires:    python%{pyver}-jsonpatch
+BuildRequires:    python%{pyver}-oslo-config >= 2:3.22.0
+BuildRequires:    python%{pyver}-oslo-concurrency
+BuildRequires:    python%{pyver}-oslo-db
+BuildRequires:    python%{pyver}-oslo-log
+BuildRequires:    python%{pyver}-oslo-messaging
+BuildRequires:    python%{pyver}-oslo-policy
+BuildRequires:    python%{pyver}-oslo-reports
+BuildRequires:    python%{pyver}-oslo-service
+BuildRequires:    python%{pyver}-lz4 >= 0.9.0
+BuildRequires:    python%{pyver}-pandas >= 0.18.0
+BuildRequires:    python%{pyver}-pecan >= 0.9
+BuildRequires:    python%{pyver}-tooz
+BuildRequires:    python%{pyver}-ujson
+BuildRequires:    python%{pyver}-werkzeug
+BuildRequires:    python%{pyver}-gnocchiclient >= 2.1.0
 
-Requires:       python-%{service} = %{version}-%{release}
+# Handle python2 exception
+%if %{pyver} == 2
+BuildRequires:    python-pytimeparse >= 1.1.5
+%else
+BuildRequires:    python%{pyver}-pytimeparse >= 1.1.5
+%endif
+
+Requires:       python%{pyver}-%{service} = %{version}-%{release}
 
 Provides:         openstack-%{service}-common = %{version}-%{release}
 Obsoletes:        openstack-%{service}-common < 4.1.3
@@ -166,19 +200,20 @@ components and index resources.
 
 This package contains the %{service} statsd daemon
 
-%package -n python-%{service}-tests
+%package -n python%{pyver}-%{service}-tests
 Summary:        Gnocchi tests
-Requires:       python-%{service} = %{version}-%{release}
-Requires:       python2-gabbi >= 1.30.0
+%{?python_provide:%python_provide python%{pyver}-%{service}-tests}
+Requires:       python%{pyver}-%{service} = %{version}-%{release}
+Requires:       python%{pyver}-gabbi >= 1.30.0
 
-%description -n python-%{service}-tests
+%description -n python%{pyver}-%{service}-tests
 This package contains the Gnocchi test files.
 
 %if 0%{?with_doc}
 %package doc
 Summary:          Documentation for %{service}
 
-Requires:         python-%{service} = %{version}-%{release}
+Requires:         python%{pyver}-%{service} = %{version}-%{release}
 
 Provides:         openstack-%{service}-doc = %{version}-%{release}
 Obsoletes:        openstack-%{service}-doc < 4.1.3
@@ -202,9 +237,9 @@ find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=%{service}/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
+PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=%{service}/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
 
-%{__python2} setup.py build
+%{pyver_build}
 
 # Programmatically update defaults in sample config
 # which is installed at /etc/gnocchi/gnocchi.conf
@@ -218,7 +253,7 @@ done < %{SOURCE1}
 
 %install
 
-%{__python2} setup.py install --skip-build --root %{buildroot}
+%{pyver_install}
 
 mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig/
 mkdir -p %{buildroot}/%{_sysconfdir}/%{service}/
@@ -278,14 +313,14 @@ exit 0
 %preun -n %{name}-statsd
 %systemd_preun %{name}-statsd.service
 
-%files -n python-%{service}
-%{python2_sitelib}/%{service}
-%{python2_sitelib}/%{service}-*.egg-info
-%exclude %{python2_sitelib}/%{service}/tests
+%files -n python%{pyver}-%{service}
+%{pyver_sitelib}/%{service}
+%{pyver_sitelib}/%{service}-*.egg-info
+%exclude %{pyver_sitelib}/%{service}/tests
 
-%files -n python-%{service}-tests
+%files -n python%{pyver}-%{service}-tests
 %license LICENSE
-%{python2_sitelib}/%{service}/tests
+%{pyver_sitelib}/%{service}/tests
 
 %files api
 %defattr(-,root,root,-)
