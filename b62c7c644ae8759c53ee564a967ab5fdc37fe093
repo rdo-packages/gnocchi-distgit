@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_d3aa3170",
+        "filename": "gnocchi.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-09-27T13:34:53Z",
+      "side": 1,
+      "message": "This should be python%{pyver}-numpy",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "b62c7c644ae8759c53ee564a967ab5fdc37fe093",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_93bb99c4",
+        "filename": "gnocchi.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-09-27T13:34:53Z",
+      "side": 1,
+      "message": "could be out of the conditional and use python%{pyver}-cachetools",
+      "range": {
+        "startLine": 90,
+        "startChar": 16,
+        "endLine": 90,
+        "endChar": 33
+      },
+      "revId": "b62c7c644ae8759c53ee564a967ab5fdc37fe093",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_73b005de",
+        "filename": "gnocchi.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-09-27T13:34:53Z",
+      "side": 1,
+      "message": "this could be out of the conditional, we have python2-monotonic in deps.",
+      "range": {
+        "startLine": 92,
+        "startChar": 16,
+        "endLine": 92,
+        "endChar": 40
+      },
+      "revId": "b62c7c644ae8759c53ee564a967ab5fdc37fe093",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_53b501cb",
+        "filename": "gnocchi.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-09-27T13:34:53Z",
+      "side": 1,
+      "message": "Could be out of the conditional, we have python2-msgpack in deps.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 38
+      },
+      "revId": "b62c7c644ae8759c53ee564a967ab5fdc37fe093",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_33cbad55",
+        "filename": "gnocchi.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-09-27T13:34:53Z",
+      "side": 1,
+      "message": "could be out of the conditional, we have python2-trollius",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 39
+      },
+      "revId": "b62c7c644ae8759c53ee564a967ab5fdc37fe093",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_13c8a954",
+        "filename": "gnocchi.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-09-27T13:34:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 41
+      },
+      "revId": "b62c7c644ae8759c53ee564a967ab5fdc37fe093",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
