@@ -1,0 +1,11 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Code-Review+1: Mehdi Abaakouk <sileht@sileht.net>
+Code-Review+1: Anonymous Coward #587
+Code-Review+2: Yatin Karel <ykarel@redhat.com>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Thu, 21 Mar 2019 13:40:48 +0000
+Reviewed-on: https://review.rdoproject.org/r/16334
+Project: openstack/gnocchi-distgit
+Branch: refs/heads/rpm-master
