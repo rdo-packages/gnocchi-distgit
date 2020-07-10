@@ -5,8 +5,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           %{service}
-Version:        XXX
-Release:        XXX
+Version:        4.3.4
+Release:        2%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
@@ -26,6 +26,9 @@ BuildRequires:  python3-devel
 BuildRequires:  systemd
 BuildRequires:  python3-tenacity >= 4.6.0
 BuildRequires:  openstack-macros
+
+Patch0001:      0001-py3-fix-misc-encoding-issues.patch
+Patch0002:      0002-Ensure-member-statistics-key-is-decoded.patch
 
 %description
 HTTP API to store metrics and index resources.
@@ -200,6 +203,9 @@ This package contains documentation files for %{service}.
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
+%patch0001 -p1
+%patch0002 -p1
+
 %py_req_cleanup
 
 
@@ -328,3 +334,8 @@ exit 0
 %endif
 
 %changelog
+* Thu Aug 13 2020 Tobias Urdin <tobias.urdin@binero.com> 4.3.4-2
+- Fix python3 encoding issues
+
+* Tue Oct 08 2019 RDO <dev@lists.rdoproject.org> 4.3.4-1
+- Update to 4.3.4
