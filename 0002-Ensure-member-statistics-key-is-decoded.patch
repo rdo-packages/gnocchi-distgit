@@ -1,0 +1,42 @@
+From 9ee6a0320d4d74e039fa38ef667691dae88c0507 Mon Sep 17 00:00:00 2001
+From: Tobias Urdin <tobias.urdin@binero.se>
+Date: Sat, 11 Jul 2020 01:40:11 +0200
+Subject: [PATCH] Ensure member statistics key is decoded
+
+In the StatusController the statistics for the
+members on python3 is a byte string which cannot
+be jsonified.
+
+This changes so it loops through the statistics
+for the member and ensures the key is a string
+and not a byte string.
+---
+ gnocchi/rest/api.py | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/gnocchi/rest/api.py b/gnocchi/rest/api.py
+index 3126638..c6812c9 100644
+--- a/gnocchi/rest/api.py
++++ b/gnocchi/rest/api.py
+@@ -2116,10 +2116,14 @@ class StatusController(rest.RestController):
+             report_dict['metricd']['processors'] = [
+                 member.decode() for member in members
+             ]
+-            report_dict['metricd']['statistics'] = {
+-                member.decode(): cap.get()
+-                for member, cap in six.moves.zip(members, caps)
+-            }
++            members_data = {}
++            for member, cap in six.moves.zip(members, caps):
++                caps_data = {
++                    six.ensure_str(k): v
++                    for k, v in six.iteritems(cap.get())
++                }
++                members_data[member.decode()] = caps_data
++            report_dict['metricd']['statistics'] = members_data
+         else:
+             report_dict['metricd']['processors'] = None
+             report_dict['metricd']['statistics'] = {}
+--
+2.7.4
+
