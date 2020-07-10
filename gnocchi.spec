@@ -27,6 +27,8 @@ BuildRequires:  systemd
 BuildRequires:  python3-tenacity >= 4.6.0
 BuildRequires:  openstack-macros
 
+Patch0001:      0001-py3-fix-misc-encoding-issues.patch
+
 %description
 HTTP API to store metrics and index resources.
 
