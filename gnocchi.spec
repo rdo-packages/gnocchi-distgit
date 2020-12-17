@@ -203,6 +203,9 @@ This package contains documentation files for %{service}.
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
+# (amoralej) Remove upper limit created upstream to fix issue with Ubuntu Focal
+sed -i 's/oslo.policy>=0.3.0.*/oslo.policy>=0.3.0/' setup.cfg
+
 %patch0001 -p1
 %patch0002 -p1
 
