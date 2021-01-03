@@ -242,7 +242,12 @@ install -p -D -m 640 %{service}/%{service}.conf %{buildroot}%{_sysconfdir}/%{ser
 #TODO(prad): build the docs at run time, once the we get rid of postgres setup dependency
 
 # Configuration
-cp -R %{service}/rest/policy.json %{buildroot}/%{_sysconfdir}/%{service}
+if [ -f %{service}/rest/policy.json ]; then
+  cp -R %{service}/rest/policy.json %{buildroot}/%{_sysconfdir}/%{service}
+fi
+if [ -f %{service}/rest/policy.yaml ]; then
+  cp -R %{service}/rest/policy.yaml %{buildroot}/%{_sysconfdir}/%{service}
+fi
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}
