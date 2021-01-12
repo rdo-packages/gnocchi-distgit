@@ -339,3 +339,4 @@ exit 0
 
 * Tue Oct 08 2019 RDO <dev@lists.rdoproject.org> 4.3.4-1
 - Update to 4.3.4
+# REMOVEME: error caused by commit https://github.com/gnocchixyz/gnocchi/commit/598b1ea075cb1a011fc7f9d1a5a168021a49a524
