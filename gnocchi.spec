@@ -27,8 +27,6 @@ BuildRequires:  systemd
 BuildRequires:  python3-tenacity >= 4.6.0
 BuildRequires:  openstack-macros
 
-Patch0002:      0002-Ensure-member-statistics-key-is-decoded.patch
-
 %description
 HTTP API to store metrics and index resources.
 
@@ -204,8 +202,6 @@ find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 # (amoralej) Remove upper limit created upstream to fix issue with Ubuntu Focal
 sed -i 's/oslo.policy>=0.3.0.*/oslo.policy>=0.3.0/' setup.cfg
-
-%patch0002 -p1
 
 %py_req_cleanup
 
