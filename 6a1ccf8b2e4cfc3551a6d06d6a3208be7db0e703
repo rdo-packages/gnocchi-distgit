@@ -1,0 +1,8 @@
+Code-Review+2: Yatin Karel <ykarel@redhat.com>
+Verified+2: Yatin Karel <ykarel@redhat.com>
+Workflow+1: Yatin Karel <ykarel@redhat.com>
+Submitted-by: Yatin Karel <ykarel@redhat.com>
+Submitted-at: Wed, 13 Jan 2021 08:49:17 +0000
+Reviewed-on: https://review.rdoproject.org/r/31535
+Project: openstack/gnocchi-distgit
+Branch: refs/heads/victoria-rdo
