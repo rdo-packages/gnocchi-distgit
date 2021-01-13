@@ -27,8 +27,6 @@ BuildRequires:  systemd
 BuildRequires:  python3-tenacity >= 4.6.0
 BuildRequires:  openstack-macros
 
-Patch0002:      0002-Ensure-member-statistics-key-is-decoded.patch
-
 %description
 HTTP API to store metrics and index resources.
 
@@ -201,8 +199,6 @@ This package contains documentation files for %{service}.
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
-
-%patch0002 -p1
 
 %py_req_cleanup
 
