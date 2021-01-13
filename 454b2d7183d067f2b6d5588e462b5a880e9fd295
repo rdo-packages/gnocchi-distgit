@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bf19c3e_dccb6c56",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2021-01-13T08:39:59Z",
+      "side": 1,
+      "message": "Once the policy.yaml file is included in the code pulled by the package, this would cause a failure to build. This is because we are not listing the file around line 318.",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 2
+      },
+      "revId": "454b2d7183d067f2b6d5588e462b5a880e9fd295",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
