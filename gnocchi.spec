@@ -5,8 +5,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           %{service}
-Version:        4.3.4
-Release:        2%{?dist}
+Version:        4.3.5
+Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
@@ -328,6 +328,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Mar 15 2021 Tobias Urdin <tobias.urdin@binero.com> 4.3.5-1
+- Update to 4.3.5
+
 * Thu Aug 13 2020 Tobias Urdin <tobias.urdin@binero.com> 4.3.4-2
 - Fix python3 encoding issues
 
