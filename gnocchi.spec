@@ -5,8 +5,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           %{service}
-Version:        XXX
-Release:        XXX
+Version:        4.3.6
+Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
@@ -331,3 +331,6 @@ exit 0
 %endif
 
 %changelog
+* Fri Oct 08 2021 RDO <dev@lists.rdoproject.org> 4.3.6-1
+- Update to 4.3.6
+
