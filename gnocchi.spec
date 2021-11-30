@@ -236,6 +236,7 @@ install -p -D -m 640 %{service}/%{service}.conf %{buildroot}%{_sysconfdir}/%{ser
 #TODO(prad): build the docs at run time, once the we get rid of postgres setup dependency
 
 # Configuration
+cp -R %{service}/rest/api-paste.ini %{buildroot}/%{_sysconfdir}/%{service}
 cp -R %{service}/rest/policy.json %{buildroot}/%{_sysconfdir}/%{service}
 
 # Setup directories
@@ -306,6 +307,7 @@ exit 0
 %{_bindir}/%{service}-injector
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.json
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/%{service}.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/logrotate.d/%{name}
