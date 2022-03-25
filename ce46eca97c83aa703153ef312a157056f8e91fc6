@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2aaf56b_f28b2d77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2022-03-25T08:14:15Z",
+      "side": 1,
+      "message": "testing it in https://review.rdoproject.org/r/c/openstack/gnocchi-distgit/+/40924",
+      "revId": "ce46eca97c83aa703153ef312a157056f8e91fc6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
