@@ -305,6 +305,10 @@ exit 0
 %{_bindir}/%{service}-change-sack-size
 %{_bindir}/%{service}-upgrade
 %{_bindir}/%{service}-injector
+# TODO(amoralej) we can remove after switch to stable/4.4 is finished.
+%if %{lua:rpm.vercmp('%{version}', '4.4.0')} > 0
+%{_bindir}/%{service}-amqpd
+%endif
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
