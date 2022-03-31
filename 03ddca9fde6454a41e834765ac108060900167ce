@@ -16,6 +16,29 @@
       "message": "recheck",
       "revId": "03ddca9fde6454a41e834765ac108060900167ce",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc12a0c6_ae592f34",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-03-31T08:03:01Z",
+      "side": 1,
+      "message": "We need to permute those items like rpm.vercmp(\u00274.4.0\u0027, \u0027%{version}\u0027), which returns 1.\nCurrently it\u0027s returning -1",
+      "range": {
+        "startLine": 309,
+        "startChar": 27,
+        "endLine": 309,
+        "endChar": 48
+      },
+      "revId": "03ddca9fde6454a41e834765ac108060900167ce",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
