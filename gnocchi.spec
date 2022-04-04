@@ -72,7 +72,7 @@ Requires:       python3-paste-deploy
 Requires:       python3-pytimeparse >= 1.1.5
 Requires:       python3-sqlalchemy-utils
 Requires:       python3-sysv_ipc
-Requires:       python3-PyYAML
+Requires:       python3-pyyaml
 Requires:       python3-psycopg2
 
 %description -n   python3-%{service}
