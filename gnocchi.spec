@@ -238,6 +238,7 @@ install -p -D -m 640 %{service}/%{service}.conf %{buildroot}%{_sysconfdir}/%{ser
 # Configuration
 cp -R %{service}/rest/api-paste.ini %{buildroot}/%{_sysconfdir}/%{service}
 cp -R %{service}/rest/policy.json %{buildroot}/%{_sysconfdir}/%{service}
+cp -R %{service}/rest/policy.yaml %{buildroot}/%{_sysconfdir}/%{service}
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}
@@ -313,6 +314,7 @@ exit 0
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.json
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.yaml
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/%{service}.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0750, %{service}, root)  %{_localstatedir}/log/%{service}
