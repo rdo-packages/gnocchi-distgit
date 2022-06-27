@@ -339,3 +339,4 @@ exit 0
 %endif
 
 %changelog
+# REMOVEME: error caused by commit https://github.com/gnocchixyz/gnocchi/commit/a07d82e30c48edf4909df51e30cbd972509e631f
