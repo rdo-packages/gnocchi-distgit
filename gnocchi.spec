@@ -21,6 +21,7 @@ BuildArch:      noarch
 
 BuildRequires:  python3-setuptools >= 30.3
 BuildRequires:  python3-setuptools_scm
+BuildRequires:  python3-toml
 BuildRequires:  python3-sphinx
 BuildRequires:  python3-devel
 BuildRequires:  systemd
@@ -306,10 +307,7 @@ exit 0
 %{_bindir}/%{service}-change-sack-size
 %{_bindir}/%{service}-upgrade
 %{_bindir}/%{service}-injector
-# TODO(amoralej) we can remove after switch to stable/4.4 is finished.
-%if %{lua:print(rpm.vercmp(rpm.expand("%{version}"), '4.4.0'));} >= 0
 %{_bindir}/%{service}-amqpd
-%endif
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
