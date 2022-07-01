@@ -33,6 +33,24 @@
       "message": "actually, we don\u0027t need this, python3-toml is dependency for new python3-setuptools_scm",
       "revId": "5be093041d763062171966f1c816753115035da2",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8878926_cd83d473",
+        "filename": "gnocchi.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2022-07-01T09:08:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d328cea_41b3b8b3",
+      "revId": "5be093041d763062171966f1c816753115035da2",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
