@@ -111,7 +111,7 @@ BuildRequires:    python3-oslo-policy
 BuildRequires:    python3-oslo-reports
 BuildRequires:    python3-oslo-service
 BuildRequires:    python3-lz4 >= 0.9.0
-BuildRequires:    python3-pandas >= 0.18.0
+BuildRequires:    python3-numpy
 BuildRequires:    python3-pecan >= 0.9
 BuildRequires:    python3-tooz >= 1.62
 BuildRequires:    python3-ujson
