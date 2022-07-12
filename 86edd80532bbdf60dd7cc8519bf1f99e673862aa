@@ -85,6 +85,24 @@
       "parentUuid": "6daf335d_e6250f9b",
       "revId": "86edd80532bbdf60dd7cc8519bf1f99e673862aa",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be090da6_d590a9fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2022-07-12T22:47:23Z",
+      "side": 1,
+      "message": "IIUC what mrunge is saying that we do need to update gnocchi to stable/4.4 in Wallaby?\nhttps://review.rdoproject.org/r/c/rdoinfo/+/43967/1/tags/wallaby.yml",
+      "parentUuid": "c461b98f_4eeefaca",
+      "revId": "86edd80532bbdf60dd7cc8519bf1f99e673862aa",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
