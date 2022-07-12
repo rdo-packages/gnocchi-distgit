@@ -67,6 +67,24 @@
       "message": "upstream-wise, only gnocchi 4.4+ is supported.",
       "revId": "86edd80532bbdf60dd7cc8519bf1f99e673862aa",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c461b98f_4eeefaca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-07-12T14:21:15Z",
+      "side": 1,
+      "message": "Sorry Matthias I should have let a note that amqpd is only supported to 4.4+. DLRN was building stable/4.4 branch by mistake instead of 4.3, that\u0027s why it complained by the absence of amqpd binary. I fixed it in [1]\n\n[1] https://review.rdoproject.org/r/c/rdo-jobs/+/43959",
+      "parentUuid": "6daf335d_e6250f9b",
+      "revId": "86edd80532bbdf60dd7cc8519bf1f99e673862aa",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
