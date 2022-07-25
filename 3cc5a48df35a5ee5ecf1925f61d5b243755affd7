@@ -1,0 +1,9 @@
+Code-Review+2: Matthias Runge <mrunge@matthias-runge.de>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 25 Jul 2022 09:57:12 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/gnocchi-distgit/+/44016
+Project: openstack/gnocchi-distgit
+Branch: refs/heads/wallaby-rdo
