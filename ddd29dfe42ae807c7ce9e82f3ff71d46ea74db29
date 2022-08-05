@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74b079d9_47bde972",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2022-08-05T08:50:26Z",
+      "side": 1,
+      "message": "After commit [1] we need to add python3-setuptools_scm+toml BR\nso version is correctly detected, without it it detects version\nas \u00270.0.0\u0027.\n\n[1] https://github.com/gnocchixyz/gnocchi/commit/3ef801a10",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 77
+      },
+      "revId": "ddd29dfe42ae807c7ce9e82f3ff71d46ea74db29",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1066fa6e_22918584",
+        "filename": "gnocchi.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2022-08-05T08:50:26Z",
+      "side": 1,
+      "message": "need to replace this not setuptools",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "ddd29dfe42ae807c7ce9e82f3ff71d46ea74db29",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
