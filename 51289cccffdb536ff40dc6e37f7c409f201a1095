@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b0c03a_df60b6c6",
+        "filename": "gnocchi.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2022-08-05T09:27:05Z",
+      "side": 1,
+      "message": "The build we use in centos8 doesn\u0027t has +toml subpackage, so what i\u0027d do is to add as a BuildRequires python3-toml. That will work both with cs8 and cs9.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 2
+      },
+      "revId": "51289cccffdb536ff40dc6e37f7c409f201a1095",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
