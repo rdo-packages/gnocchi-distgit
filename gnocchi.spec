@@ -20,7 +20,7 @@ Source12:       %{name}-statsd.service
 BuildArch:      noarch
 
 BuildRequires:  python3-setuptools >= 30.3
-BuildRequires:  python3-setuptools_scm
+BuildRequires:  python3-setuptools_scm+toml
 BuildRequires:  python3-sphinx
 BuildRequires:  python3-devel
 BuildRequires:  systemd
