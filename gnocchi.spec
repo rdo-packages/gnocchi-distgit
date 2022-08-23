@@ -289,11 +289,9 @@ exit 0
 %files -n python3-%{service}
 %{python3_sitelib}/%{service}
 %{python3_sitelib}/%{service}-*.egg-info
-%exclude %{python3_sitelib}/%{service}/tests
 
 %files -n python3-%{service}-tests
 %license LICENSE
-%{python3_sitelib}/%{service}/tests
 
 %files api
 %defattr(-,root,root,-)
