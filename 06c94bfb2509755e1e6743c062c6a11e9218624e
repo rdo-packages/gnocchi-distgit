@@ -39,6 +39,30 @@
       },
       "revId": "06c94bfb2509755e1e6743c062c6a11e9218624e",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6654267_095b0678",
+        "filename": "gnocchi.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2022-08-24T07:34:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cd97487_fb0f4499",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 3
+      },
+      "revId": "06c94bfb2509755e1e6743c062c6a11e9218624e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
