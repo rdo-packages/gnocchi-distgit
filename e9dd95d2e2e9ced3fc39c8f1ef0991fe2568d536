@@ -16,6 +16,24 @@
       "message": "We spot another issue as DLRN-rpmbuild-centos8 should have failed too:\n\n$ rpm -qp --requires https://logserver.rdoproject.org/77/44777/1/check/DLRN-rpmbuild-centos8/06a9457/buildset/centos8/current/python3-gnocchi-4.4.3-0.20220906091919.cb866ee.el8.noarch.rpm | grep oslo-policy\npython3-oslo-policy \u003e\u003d 0.3.0\n\nwhereas in cs9\n\n$ rpm -qp --requires https://logserver.rdoproject.org/77/44777/1/check/DLRN-rpmbuild-centos9/5be82d3/buildset/centos9/repos/cb/86/cb866ee84d20e8e258ade303ad0aa6083d0ff37a_dev/python3-gnocchi-4.4.3-0.20220906091928.cb866ee.el9.noarch.rpm | grep oslo-policy\npython3-oslo-policy \u003e\u003d 0.3.0\npython3.9dist(oslo-policy) \u003e\u003d 3.11",
       "revId": "e9dd95d2e2e9ced3fc39c8f1ef0991fe2568d536",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1768f874_500d491d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-09-07T12:54:14Z",
+      "side": 1,
+      "message": "The FTBFS is cleared with revert https://github.com/gnocchixyz/gnocchi/pull/1272 and new commit\nStill, something is wrong with cs8 package that we need to dig in",
+      "parentUuid": "e7aaa579_3dcf4e43",
+      "revId": "e9dd95d2e2e9ced3fc39c8f1ef0991fe2568d536",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
