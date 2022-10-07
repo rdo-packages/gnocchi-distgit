@@ -51,7 +51,7 @@ Requires:       python3-pecan >= 0.9
 Requires:       python3-requests
 Requires:       python3-swiftclient >= 3.1.0
 Requires:       python3-six
-Requires:       python3-sqlalchemy
+Requires:       python3-sqlalchemy < 1.4.0
 Requires:       python3-stevedore
 Requires:       python3-tooz >= 1.62
 Requires:       python3-trollius
