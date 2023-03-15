@@ -202,7 +202,7 @@ rm -f %{buildroot}/usr/etc/%{service}/*
 %pre common
 getent group %{service} >/dev/null || groupadd -r %{service}
 if ! getent passwd %{service} >/dev/null; then
-  useradd -r -g %{service} -G %{service},nobody -d %{_sharedstatedir}/%{service} -s /sbin/nologin -c "%{service} Daemons" %{service}
+  useradd -r -g %{service} -G %{service} -d %{_sharedstatedir}/%{service} -s /sbin/nologin -c "%{service} Daemons" %{service}
 fi
 exit 0
 
