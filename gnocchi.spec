@@ -9,7 +9,7 @@ Version:        XXX
 Release:        XXX
 Summary:        Gnocchi is a API to store metrics and index resources
 
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            http://github.com/gnocchixyz/%{service}
 Source0:        https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 Source1:        %{pypi_name}-dist.conf
@@ -19,12 +19,9 @@ Source11:       %{name}-metricd.service
 Source12:       %{name}-statsd.service
 BuildArch:      noarch
 
-BuildRequires:  python3-setuptools >= 30.3
-BuildRequires:  python3-setuptools_scm
-BuildRequires:  python3-sphinx
 BuildRequires:  python3-devel
+BuildRequires:  pyproject-rpm-macros
 BuildRequires:  systemd
-BuildRequires:  python3-tenacity >= 4.6.0
 BuildRequires:  openstack-macros
 
 %description
@@ -32,48 +29,11 @@ HTTP API to store metrics and index resources.
 
 %package -n     python3-%{service}
 Summary:        %{service} python libraries
-%{?python_provide:%python_provide python3-%{service}}
 
-Requires:       python3-numpy >= 1.9.0
-Requires:       python3-daiquiri
-Requires:       python3-iso8601
-Requires:       python3-jinja2
-Requires:       python3-keystonemiddleware >= 4.0.0
-Requires:       python3-lz4 >= 0.9.0
-Requires:       python3-monotonic
-Requires:       python3-msgpack
-Requires:       python3-oslo-config >= 2:3.22.0
-Requires:       python3-oslo-db >= 4.29.0
-Requires:       python3-oslo-middleware >= 3.22.0
-Requires:       python3-oslo-policy >= 0.3.0
-Requires:       python3-pecan >= 0.9
-Requires:       python3-requests
-Requires:       python3-swiftclient >= 3.1.0
-Requires:       python3-six
-Requires:       python3-sqlalchemy
-Requires:       python3-stevedore
-Requires:       python3-tooz >= 1.62
-Requires:       python3-trollius
-Requires:       python3-tenacity >= 4.6.0
-Requires:       python3-ujson
-Requires:       python3-voluptuous >= 0.8.10
-Requires:       python3-werkzeug
-Requires:       python3-pytz
-Requires:       python3-webob >= 1.4.1
-Requires:       python3-alembic
-Requires:       python3-prettytable
-Requires:       python3-cotyledon >= 1.5.0
-Requires:       python3-jsonpatch
-Requires:       python3-cachetools
-Requires:       python3-pyparsing >= 2.2.0
-
-Requires:       python3-paste
-Requires:       python3-paste-deploy
-Requires:       python3-pytimeparse >= 1.1.5
-Requires:       python3-sqlalchemy-utils
-Requires:       python3-sysv_ipc
-Requires:       python3-PyYAML
-Requires:       python3-psycopg2
+Requires:       python3-%{service}+keystone = %{version}-%{release}
+Requires:       python3-%{service}+mysql = %{version}-%{release}
+Requires:       python3-%{service}+postgresql = %{version}-%{release}
+Requires:       python3-%{service}+swift = %{version}-%{release}
 
 %description -n   python3-%{service}
 %{service} provides API to store metrics from components
@@ -99,39 +59,10 @@ This package contains the %{service} API service.
 %package        common
 Summary:        Components common to all %{service} services
 
-# Config file generation
-BuildRequires:    python3-daiquiri
-BuildRequires:    python3-jsonpatch
-BuildRequires:    python3-oslo-config >= 2:3.22.0
-BuildRequires:    python3-oslo-concurrency
-BuildRequires:    python3-oslo-db
-BuildRequires:    python3-oslo-log
-BuildRequires:    python3-oslo-messaging
-BuildRequires:    python3-oslo-policy
-BuildRequires:    python3-oslo-reports
-BuildRequires:    python3-oslo-service
-BuildRequires:    python3-lz4 >= 0.9.0
-BuildRequires:    python3-numpy
-BuildRequires:    python3-pecan >= 0.9
-BuildRequires:    python3-tooz >= 1.62
-BuildRequires:    python3-ujson
-BuildRequires:    python3-werkzeug
-BuildRequires:    python3-gnocchiclient >= 2.1.0
-
-BuildRequires:    python3-pytimeparse >= 1.1.5
-
 Requires:       python3-%{service} = %{version}-%{release}
 
 Provides:         openstack-%{service}-common = %{version}-%{release}
 Obsoletes:        openstack-%{service}-common < 4.1.3
-
-Obsoletes:        openstack-%{service}-carbonara
-
-# openstack-gnocchi-indexer-sqlalchemy is removed and merged into common
-Provides:         openstack-%{service}-indexer-sqlalchemy = %{version}-%{release}
-Obsoletes:        openstack-%{service}-indexer-sqlalchemy < 4.1.3
-
-# Obsolete old openstack-gnocchi packages
 
 %description    common
 %{service} provides services to measure and
@@ -170,9 +101,11 @@ This package contains the %{service} statsd daemon
 
 %package -n python3-%{service}-tests
 Summary:        Gnocchi tests
-%{?python_provide:%python_provide python3-%{service}-tests}
 Requires:       python3-%{service} = %{version}-%{release}
 Requires:       python3-gabbi >= 1.30.0
+
+BuildRequires:  python3-gabbi
+BuildRequires:  python3-stestr
 
 %description -n python3-%{service}-tests
 This package contains the Gnocchi test files.
@@ -195,7 +128,7 @@ This package contains documentation files for %{service}.
 
 
 %prep
-%setup -q -n %{service}-%{upstream_version}
+%autosetup -n %{service}-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
@@ -203,14 +136,21 @@ find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 # (amoralej) Remove upper limit created upstream to fix issue with Ubuntu Focal
 sed -i 's/oslo.policy>=0.3.0.*/oslo.policy>=0.3.0/' setup.cfg
 
-%py_req_cleanup
+# CentOS Stream 9 provides python3-chardet-4.0.0
+sed -i 's/chardet.*/chardet/g' setup.cfg
 
+# Automatic BR generation
+%generate_buildrequires
+%pyproject_buildrequires
 
 %build
-# Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=%{service}/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
+%pyproject_wheel
 
-%{py3_build}
+%install
+%pyproject_install
+
+# Generate config file
+PYTHONPATH="%{buildroot}/%{python3_sitelib}" oslo-config-generator --config-file=%{service}/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
 
 # Programmatically update defaults in sample config
 # which is installed at /etc/gnocchi/gnocchi.conf
@@ -221,10 +161,6 @@ while read name eq value; do
   test "$name" && test "$value" || continue
   sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" %{service}/%{service}.conf
 done < %{SOURCE1}
-
-%install
-
-%{py3_install}
 
 mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig/
 mkdir -p %{buildroot}/%{_sysconfdir}/%{service}/
@@ -286,9 +222,11 @@ exit 0
 %preun -n %{name}-statsd
 %systemd_preun %{name}-statsd.service
 
+%pyproject_extras_subpkg -n python3-%{service} keystone mysql postgresql swift
+
 %files -n python3-%{service}
 %{python3_sitelib}/%{service}
-%{python3_sitelib}/%{service}-*.egg-info
+%{python3_sitelib}/%{service}-*.dist-info
 
 %files -n python3-%{service}-tests
 %license LICENSE
