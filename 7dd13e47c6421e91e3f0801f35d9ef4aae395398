@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dfd1dd2_746f03ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-08-04T14:16:58Z",
+      "side": 1,
+      "message": "I checked the 4 deps lost, they are not needed anymore",
+      "revId": "7dd13e47c6421e91e3f0801f35d9ef4aae395398",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
