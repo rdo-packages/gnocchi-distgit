@@ -128,7 +128,9 @@ This package contains documentation files for %{service}.
 
 
 %prep
-%autosetup -n %{service}-%{upstream_version} -S git
+%setup -q -n %{service}-%{upstream_version}
+
+echo "graft gnocchi" >> MANIFEST.in
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
