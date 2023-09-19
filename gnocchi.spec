@@ -5,7 +5,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           %{service}
-Version:        4.5.0
+Version:        4.5.1
 Release:        1%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
@@ -334,6 +334,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Sep 19 2023 Tobias Urdin <tobias.urdin@binero.com> 4.5.1-1
+- Update to 4.5.1
+
 * Wed Mar 15 2023 RDO <dev@lists.rdoproject.org> 4.5.0-1
 - Update to 4.5.0
 
