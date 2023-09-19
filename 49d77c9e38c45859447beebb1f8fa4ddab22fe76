@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1108df_0ab3a86b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-09-19T07:17:44Z",
+      "side": 1,
+      "message": "let\u0027s wait for https://review.rdoproject.org/r/c/rdoinfo/+/50091 to be merged and 4.6.0 promoted",
+      "revId": "49d77c9e38c45859447beebb1f8fa4ddab22fe76",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
