@@ -11,7 +11,7 @@ Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
 URL:            http://github.com/gnocchixyz/%{service}
-Source0:        https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        %{pypi_source}
 Source1:        %{pypi_name}-dist.conf
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
@@ -195,7 +195,7 @@ This package contains documentation files for %{service}.
 
 
 %prep
-%setup -q -n %{service}-%{upstream_version}
+%autosetup -n %{service}-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
