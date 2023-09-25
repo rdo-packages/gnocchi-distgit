@@ -11,7 +11,7 @@ Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
 URL:            http://github.com/gnocchixyz/%{service}
-Source0:        https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        %{pypi_source}
 Source1:        %{pypi_name}-dist.conf
 Source2:        %{pypi_name}.logrotate
 Source10:       %{name}-api.service
@@ -195,7 +195,7 @@ This package contains documentation files for %{service}.
 
 
 %prep
-%setup -q -n %{service}-%{upstream_version}
+%autosetup -n %{service}-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
@@ -288,11 +288,9 @@ exit 0
 %files -n python3-%{service}
 %{python3_sitelib}/%{service}
 %{python3_sitelib}/%{service}-*.egg-info
-%exclude %{python3_sitelib}/%{service}/tests
 
 %files -n python3-%{service}-tests
 %license LICENSE
-%{python3_sitelib}/%{service}/tests
 
 %files api
 %defattr(-,root,root,-)
@@ -305,10 +303,7 @@ exit 0
 %{_bindir}/%{service}-change-sack-size
 %{_bindir}/%{service}-upgrade
 %{_bindir}/%{service}-injector
-# TODO(amoralej) we can remove after switch to stable/4.4 is finished.
-%if %{lua:print(rpm.vercmp(rpm.expand("%{version}"), '4.4.0'));} >= 0
 %{_bindir}/%{service}-amqpd
-%endif
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
