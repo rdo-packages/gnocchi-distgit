@@ -195,7 +195,7 @@ This package contains documentation files for %{service}.
 
 
 %prep
-%setup -q -n %{service}-%{upstream_version}
+%autosetup -n %{service}-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
