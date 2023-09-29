@@ -6,7 +6,7 @@
 
 Name:           %{service}
 Version:        4.4.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
@@ -337,6 +337,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Sep 29 2023 Joel Capitao <jcapitao@redhat.com> 4.4.5-2
+- Rebuild with new setuptools_scm NVR
+
 * Tue Sep 19 2023 Tobias Urdin <tobias.urdin@binero.com> 4.4.5-1
 - Update to 4.4.5
 
