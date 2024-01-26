@@ -135,12 +135,6 @@ echo "graft gnocchi" >> MANIFEST.in
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
-# (amoralej) Remove upper limit created upstream to fix issue with Ubuntu Focal
-sed -i 's/oslo.policy>=0.3.0.*/oslo.policy>=0.3.0/' setup.cfg
-
-# CentOS Stream 9 provides python3-chardet-4.0.0
-sed -i 's/chardet.*/chardet/g' setup.cfg
-
 # Automatic BR generation
 %generate_buildrequires
 %pyproject_buildrequires
@@ -175,8 +169,6 @@ install -p -D -m 640 %{service}/%{service}.conf %{buildroot}%{_sysconfdir}/%{ser
 
 # Configuration
 cp -R %{service}/rest/api-paste.ini %{buildroot}/%{_sysconfdir}/%{service}
-cp -R %{service}/rest/policy.json %{buildroot}/%{_sysconfdir}/%{service}
-cp -R %{service}/rest/policy.yaml %{buildroot}/%{_sysconfdir}/%{service}
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}
@@ -248,8 +240,6 @@ exit 0
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
-%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.json
-%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.yaml
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/%{service}.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0750, %{service}, root)  %{_localstatedir}/log/%{service}
