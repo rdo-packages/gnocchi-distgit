@@ -6,7 +6,7 @@
 
 Name:           %{service}
 Version:        4.5.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Gnocchi is a API to store metrics and index resources
 
 License:        ASL 2.0
@@ -37,7 +37,7 @@ Summary:        %{service} python libraries
 Requires:       python3-numpy >= 1.9.0
 Requires:       python3-daiquiri
 Requires:       python3-iso8601
-Requires:       python3-jinja2
+Requires:       python3-jinja2 >= 3.0.0
 Requires:       python3-keystonemiddleware >= 4.0.0
 Requires:       python3-lz4 >= 0.9.0
 Requires:       python3-monotonic
@@ -334,6 +334,9 @@ exit 0
 %endif
 
 %changelog
+* Tue May 21 2024 Tobias Urdin <tobias.urdin@binero.com> 4.5.1-2
+- Fix jinja2 requires
+
 * Tue Sep 19 2023 Tobias Urdin <tobias.urdin@binero.com> 4.5.1-1
 - Update to 4.5.1
 
