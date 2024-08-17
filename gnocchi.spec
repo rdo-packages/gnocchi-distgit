@@ -47,8 +47,6 @@ This package contains the %{service} python library.
 Summary:        %{service} api
 
 Requires:       %{name}-common = %{version}-%{release}
-Obsoletes:      openstack-%{service}-api < 4.1.3
-Provides:       openstack-%{service}-api = %{version}-%{release}
 
 %description api
 %{service} provides API to store metrics from components
@@ -61,9 +59,6 @@ Summary:        Components common to all %{service} services
 
 Requires:       python3-%{service} = %{version}-%{release}
 
-Provides:         openstack-%{service}-common = %{version}-%{release}
-Obsoletes:        openstack-%{service}-common < 4.1.3
-
 %description    common
 %{service} provides services to measure and
 collect metrics from components.
@@ -73,9 +68,6 @@ collect metrics from components.
 Summary:        %{service} metricd daemon
 
 Requires:       %{name}-common = %{version}-%{release}
-
-Obsoletes:      openstack-%{service}-metricd < 4.1.3
-Provides:       openstack-%{service}-metricd = %{version}-%{release}
 
 %description metricd
 %{service} provides API to store metrics from OpenStack
@@ -89,9 +81,6 @@ This package contains the %{service} metricd daemon
 Summary:        %{service} statsd daemon
 
 Requires:       %{name}-common = %{version}-%{release}
-
-Obsoletes:      openstack-%{service}-statsd < 4.1.3
-Provides:       openstack-%{service}-statsd = %{version}-%{release}
 
 %description statsd
 %{service} provides API to store metrics from OpenStack
@@ -115,9 +104,6 @@ This package contains the Gnocchi test files.
 Summary:          Documentation for %{service}
 
 Requires:         python3-%{service} = %{version}-%{release}
-
-Provides:         openstack-%{service}-doc = %{version}-%{release}
-Obsoletes:        openstack-%{service}-doc < 4.1.3
 
 %description      doc
 %{service} provides services to measure and
