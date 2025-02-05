@@ -144,7 +144,6 @@ while read name eq value; do
   sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" %{service}/%{service}.conf
 done < %{SOURCE1}
 
-mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig/
 mkdir -p %{buildroot}/%{_sysconfdir}/%{service}/
 mkdir -p %{buildroot}/%{_var}/log/%{name}
 
