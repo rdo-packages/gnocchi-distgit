@@ -60,8 +60,10 @@ Summary:        Components common to all %{service} services
 Requires:       python3-%{service} = %{version}-%{release}
 
 %description    common
-%{service} provides services to measure and
-collect metrics from components.
+%{service} provides services to measure and collect metrics from components.
+
+This package contains components common to all ${service} services.
+
 
 %package        metricd
 
@@ -70,10 +72,9 @@ Summary:        %{service} metricd daemon
 Requires:       %{name}-common = %{version}-%{release}
 
 %description metricd
-%{service} provides API to store metrics from OpenStack
-components and index resources.
+%{service} provides services to measure and collect metrics from components.
 
-This package contains the %{service} metricd daemon
+This package contains the %{service} metricd daemon.
 
 
 %package        statsd
@@ -83,10 +84,9 @@ Summary:        %{service} statsd daemon
 Requires:       %{name}-common = %{version}-%{release}
 
 %description statsd
-%{service} provides API to store metrics from OpenStack
-components and index resources.
+%{service} provides services to measure and collect metrics from components.
 
-This package contains the %{service} statsd daemon
+This package contains the %{service} statsd daemon.
 
 %package -n python3-%{service}-tests
 Summary:        Gnocchi tests
@@ -106,8 +106,7 @@ Summary:          Documentation for %{service}
 Requires:         python3-%{service} = %{version}-%{release}
 
 %description      doc
-%{service} provides services to measure and
-collect metrics from components.
+%{service} provides services to measure and collect metrics from components.
 
 This package contains documentation files for %{service}.
 %endif
