@@ -200,7 +200,7 @@ exit 0
 %preun -n %{name}-statsd
 %systemd_preun %{name}-statsd.service
 
-%pyproject_extras_subpkg -n python3-%{service} keystone mysql postgresql swift
+%pyproject_extras_subpkg -n python3-%{service} keystone mysql postgresql swift redis
 
 %files -n python3-%{service}
 %{python3_sitelib}/%{service}
